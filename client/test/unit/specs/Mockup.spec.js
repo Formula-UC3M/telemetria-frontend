@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Mockup from '@/components/Mockup';
+import Mockup from '@/pages/Mockup';
 
 describe('Mockup.vue', () => {
   it('should render correct contents', () => {

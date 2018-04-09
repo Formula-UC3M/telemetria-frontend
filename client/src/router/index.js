@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Mockup from '@/components/Mockup';
+import Mockup from '@/pages/Mockup';
 
 Vue.use(Router);
 

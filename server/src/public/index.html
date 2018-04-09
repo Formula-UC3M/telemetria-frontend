@@ -2,7 +2,27 @@
 <html>
 <head>
 	<title>Formula UC3M</title>
-
+	<script src="https://unpkg.com/mqtt@2.17.0/dist/mqtt.min.js"></script>
+	<script>
+		var mqtt_server = 'localhost'
+		var mqtt_port = 3001;
+		var mqttService = mqtt.connect("ws://" + mqtt_server, {
+			//username: mqtt_username,
+			//password: mqtt_password,
+			//clientId: "interface",
+			port: mqtt_port
+		});
+		
+		mqttService.on("message", (topic, payload) => {
+			alert([topic, payload].join(": "));
+		});
+		
+		mqttService.subscribe("formula/realtime-data");
+		mqttService.publish("formula/realtime-data", JSON.stringify({
+			velocidad: 1,
+			frenos: 200
+		}));
+	</script>
 	<style type="text/css">
 
 		div {

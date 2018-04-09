@@ -38,7 +38,7 @@
   "homepage": "https://github.com/OSWeekends/formula-uc3m/tree/master/server#readme",
   "dependencies": {
     "dotenv": "^5.0.1",
-    "mongoose": "^4.13.11",
+    "mosca": "^2.8.1",
     "pillars": "^0.6.4"
   },
   "devDependencies": {

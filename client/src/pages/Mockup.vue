@@ -1,10 +1,8 @@
 <template>
   <div class="page">
     <div class="top-section">
-      <div class="kmh">
-        <span>237</span> km/h
-      </div>
-      <div class="marcha">4</div>
+      <indicator-speedometer />
+      <indicator-gear />
       <div class="pedals">
         <div class="pedal">
           <div class="empty" style="height: 10%"></div>
@@ -13,14 +11,7 @@
           <div class="empty" style="height: 60%"></div>
         </div>
       </div>
-      <div class="rpm">
-        <span>12000 rpm</span>
-        <div class="porcentaje">
-          <div class="fill"></div>
-          <div class="cut"></div>
-        </div>
-        <div class="embrague"></div>
-      </div>
+      <indicator-rpm />
     </div>
 
     <div class="car">
@@ -47,19 +38,7 @@
       </div>
 
       <div class="bloque-motor tercio">
-        <div class="direction">
-          direction<br />
-          <div class="bar">
-            <div class="side left">
-              <div class="fill" style="width: 57%;"></div>
-            </div><!--
-            --><div class="middle"></div><!--
-            --><div class="side right">
-              <div class="fill" style="width: 2%;"></div>
-            </div>
-          </div>
-        </div>
-
+        <indicator-direction />
         <div class="engine">
           <div class="engine-half engine-oil-tem">190</div>
           <div class="engine-half engine-water-tem">85</div>
@@ -102,8 +81,21 @@
 </template>
 
 <script>
+import {
+  IndicatorDirection,
+  IndicatorRpm,
+  IndicatorSpeedometer,
+  IndicatorGear,
+} from '../components/Indicators/index';
+
 export default {
   name: 'Mockup',
+  components: {
+    IndicatorDirection,
+    IndicatorRpm,
+    IndicatorSpeedometer,
+    IndicatorGear,
+  },
   data() {
     return {
       msg: 'Welcome to Your Vue.js App',
@@ -114,6 +106,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.page {background: url("../assets/formula.svg"); background-size: cover;}
   div {
     display: inline-block;
     text-align: center;
@@ -148,26 +141,6 @@ export default {
       display: none;
     }
 
-  .kmh {
-    display: inline-block;
-    height: 10vh;
-    line-height: 10vh;
-    font-size: 2em;
-  }
-    .kmh span {
-      font-size: 4em;
-    }
-
-  .marcha {
-    background-color: lightgrey;
-    border: 1px solid grey;
-    color: black;
-    font-size: 4em;
-    line-height: 10vw;
-    height: 10vw;
-    width: 10vw;
-  }
-
   .pedal {
     height: 15vh;
     width: 4vw;
@@ -178,45 +151,6 @@ export default {
       height: 100%;
       vertical-align: top;
       width: 100%;
-    }
-
-  .rpm {
-    width: 30vw;
-  }
-
-    .rpm span {
-      width: 100%;
-      height: 4vh;
-      font-size: 2em;
-    }
-
-    .rpm .porcentaje {
-      background-color: lightgrey;
-      height: 4vh;
-      margin: 1vh 0;
-      position: relative;
-      text-align: left;
-      width: 90%;
-    }
-      .rpm .porcentaje .fill {
-        background-color: green;
-        height: 100%;
-        width: 60%;
-      }
-
-      .rpm .porcentaje .cut {
-        position: absolute;
-        right: -5vh;
-        background-color: red;
-        height: 100%;
-        width: 4vh;
-      }
-
-    .rpm .embrague {
-      width: 90%;
-      height: 4vh;
-      background-color: yellow;
-      margin: 1vh 0;
     }
 
   /**/
@@ -274,39 +208,6 @@ export default {
   .bloque-motor {
     z-index: 2;
   }
-
-  .direction {
-    height: 10%;
-    font-size: 1.5em;
-    padding: 2vh 0;
-    width: 100%;
-  }
-    .direction .bar {
-      background-color: lightgrey;
-      height: 1vh;
-      width: 60%;
-    }
-      .direction .bar .side {
-        height: 100%;
-        width: calc(48% - 1vh);
-        margin-top: -2vh;
-      }
-        .direction .bar .side.left {
-          text-align: right;
-        }
-        .direction .bar .side.right {
-          text-align: left;
-        }
-        .direction .bar .side .fill {
-          background-color: green;
-          height: 100%;
-          margin-top: -2vh;
-        }
-      .direction .bar .middle {
-        background-color: red;
-        height: 100%;
-        width: 1vh;
-      }
 
   .engine {
     height: 30%;
