@@ -56,6 +56,7 @@ De la creación y gestión del servidor de datos en tiempo real se encargará el
 
 - [Javier Gallego (@bifuer)](https://github.com/bifuer) (lider ArduData) Fullstack
 - [Sebastián Cabanas (@Sediug)](https://github.com/Sediug) (lider ArduData) Fullstack
+- [Óliver BM(@umowis)](https://github.com/umowis) (contributor ArduData) Fullstack
 - [Rubén Moreno (@rubenmoreno94)](https://github.com/rubenmoreno94) (contributor) Pruebas de conexión Arduino <> Servidor
 - Todas las personas que se quieran unir al equipo que envien un PR con su info sustituyendo este mensage :P
 
