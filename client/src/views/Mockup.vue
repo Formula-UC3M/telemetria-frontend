@@ -1,38 +1,23 @@
 <template>
   <div class="page">
-    <div class="top-section">
-      <indicator-speedometer />
-      <indicator-gear />
-      <div class="pedals">
-        <div class="pedal">
-          <div class="empty" style="height: 10%"></div>
-        </div>
-        <div class="pedal">
-          <div class="empty" style="height: 60%"></div>
-        </div>
-      </div>
-      <indicator-rpm />
-    </div>
-    <car />
+
+    <header class="top-section">
+    <Header />
+    </header>
+
+    <Car />
   </div>
 </template>
 
 <script>
-import {
-  IndicatorRpm,
-  IndicatorSpeedometer,
-  IndicatorGear,
-} from '../components/Indicators/index';
 
-import Car from '../components/Car.vue';
+import { Car, Header } from '../components/index';
 
 export default {
   name: 'Mockup',
   components: {
-    IndicatorRpm,
-    IndicatorSpeedometer,
-    IndicatorGear,
     Car,
+    Header,
   },
   data() {
     return {
@@ -44,16 +29,24 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+body {
+  margin: 0;
+  padding: 0;
+}
   div {
     display: inline-block;
     text-align: center;
     vertical-align: middle;
   }
+  .page {
+    width: 100%;
+  }
 
   .top-section {
+    background-color: green;
     display: block;
-    margin-top: 5vh;
     height: 20vh;
+    padding: 10px 20px;
   }
   .top-section > div {
     margin: 0 3vh;

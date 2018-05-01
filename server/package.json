@@ -7,7 +7,7 @@
     "start": "npm run build:client && node index.js",
     "test": "gulp test",
     "lint": "gulp lint",
-    "build:client": "cd ../client && npm run build && rm -r ../server/src/public && mkdir -p ../server/src/public && cp -R ./dist/* ../server/src/public"
+    "build:client": "cd ../client && npm run build && rm -rf ../server/src/public && mkdir -p ../server/src/public && cp -R ./dist/* ../server/src/public"
   },
   "readme": "README.md",
   "repository": {
