@@ -1,10 +1,14 @@
 /* eslint-disable */
 import {
-    IndicatorDirection,
-    IndicatorRpm
+  IndicatorDirection,
+  IndicatorRpm,
+  IndicatorSpeedometer,
+  IndicatorGear,
 } from './indicators/index';
 
 export {
-    IndicatorDirection,
-    IndicatorRpm,
+  IndicatorDirection,
+  IndicatorRpm,
+  IndicatorSpeedometer,
+  IndicatorGear,
 };
