@@ -29,7 +29,16 @@ Tanto si deseas hablar con nosotros sobre el proyecto como si deseas unirte... l
 
 ### Mandar un PR
 
-Antes de hacer nada... es muy recomendado pasar un tiempo leyendo ["¿Cómo trabajamos aquí?"](#c%C3%B3mo-trabajamos-aqu%C3%AD)
+Antes de hacer nada... es muy recomendado pasar un tiempo leyendo ["¿Cómo trabajamos aquí?"](#c%C3%B3mo-trabajamos-aqu%C3%AD).
+
+**Guía de estilo para el código:**
+ 
+ Para evitar conflictos absurdos a la hora de realizar un commit o un PR seguimos la siguiente guía de estilos para escribir el código:
+  - Javascript: Comillas simples - console.log('Hola mundo').
+  - Html CSS: Comillas dobles <h1 class="nombre-clase">.
+  - Clases CSS: guiones y guiones bajos en vez de camelCase - Ej: nombre-clase__modificador.
+  - Tabs siempre de 2 espacios.
+  - Utilizamos idioma Inglés para los nombres de clases.
 
 
 ### Código de conducta
