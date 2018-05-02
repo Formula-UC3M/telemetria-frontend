@@ -1,6 +1,7 @@
 <template>
   <div class="kmh">
-    <span>237</span> km/h
+    <p> <span> 237 </span> km/h  </p>
+
   </div>
 </template>
 
@@ -18,12 +19,14 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
   .kmh {
-    display: inline-block;
-    height: 10vh;
+    color: #d9d9d9;
     line-height: 10vh;
+    font-size: 1.25em;
+  }
+  .kmh p {
+    margin: 0;
+  }
+  .kmh span {
     font-size: 2em;
   }
-    .kmh span {
-      font-size: 4em;
-    }
 </style>

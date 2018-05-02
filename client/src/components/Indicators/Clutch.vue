@@ -1,5 +1,5 @@
 <template>
-  <div class="clutch">4</div>
+  <div class="clutch"> </div>
 </template>
 
 <script>
@@ -17,7 +17,7 @@ export default {
 <style>
   .clutch {
     background-color: red;
-    height: 20px;
-    width: 20px;
+    height: 30px;
+    width: 30px;
   }
 </style>

@@ -1,5 +1,7 @@
 <template>
-  <div class="marcha">4</div>
+  <div class="gear">
+    <p> 4 </p>
+  </div>
 </template>
 
 <script>
@@ -15,13 +17,19 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-  .marcha {
+  .gear {
+    align-items: center;
     background-color: lightgrey;
     border: 1px solid grey;
-    color: black;
-    font-size: 4em;
-    line-height: 10vw;
-    height: 10vw;
-    width: 10vw;
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+  }
+  .gear p {
+    color: #0e0e0e;
+    font-family: monospace;
+    font-size: 2em;
+    margin: 0;
   }
 </style>

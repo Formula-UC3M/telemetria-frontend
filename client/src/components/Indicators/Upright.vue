@@ -1,13 +1,13 @@
 <template>
-  <div class="stub">4</div>
+  <div class="upright"> 1 Mangueta </div>
 </template>
 
 <script>
 export default {
-  name: 'IndicatorStub',
+  name: 'IndicatorUpright',
   data() {
     return {
-      msg: 'Here Stub data',
+      msg: 'Datos de Mangueta',
     };
   },
 };
