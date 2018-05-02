@@ -6,3 +6,4 @@ export { default as IndicatorGear } from './Gear';
 export { default as IndicatorClutch } from './Clutch';
 export { default as IndicatorBrakeTemp } from './Brake-temp';
 export { default as IndicatorRadiator } from './Radiator';
+export { default as IndicatorStub } from './Stub';
