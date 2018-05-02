@@ -1,15 +1,16 @@
 <template>
      <div class="data-Header">
-        <section>
+        <section class="speed-gear-clutch">
           <Indicator-speedometer />
           <Indicator-gear />
+          <Indicator-clutch />
         </section>
 
         <section class="pedals">
-          <div class="pedal">
+          <div class="pedal throttle">
             <div class="empty" style="height: 10%"></div>
           </div>
-          <div class="pedal">
+          <div class="pedal brake">
             <div class="empty" style="height: 60%"></div>
           </div>
         </section>
@@ -23,6 +24,7 @@ import {
   IndicatorSpeedometer,
   IndicatorGear,
   IndicatorRpm,
+  IndicatorClutch,
 } from '../components/Indicators/index';
 
 export default {
@@ -31,6 +33,7 @@ export default {
     IndicatorSpeedometer,
     IndicatorGear,
     IndicatorRpm,
+    IndicatorClutch,
   },
   props: {},
 };
