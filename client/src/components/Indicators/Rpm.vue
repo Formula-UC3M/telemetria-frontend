@@ -3,9 +3,7 @@
     <span>12000 rpm</span>
     <div class="porcentaje">
       <div class="fill"></div>
-      <div class="cut"></div>
     </div>
-    <div class="embrague"></div>
   </div>
 </template>
 
@@ -14,7 +12,7 @@ export default {
   name: 'IndicatorRpm',
   data() {
     return {
-      msg: 'Welcome to Your Vue.js App',
+      msg: 'Mensaje de RPM faster and furious!!!',
     };
   },
 };
