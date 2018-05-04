@@ -57,8 +57,9 @@ typings/
 # dotenv environment variables file
 .env
 
-#VS Code
+# VS Code
+.vscode
 .history
 
-#Operative Systems
+# Operative Systems
 .DS_Store
