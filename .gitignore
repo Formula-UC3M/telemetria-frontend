@@ -63,7 +63,3 @@ typings/
 
 # Operative Systems
 .DS_Store
-
-# Ignore client compiled files
-server/src/public/static/*
-server/src/public/index.html
