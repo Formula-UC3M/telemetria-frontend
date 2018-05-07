@@ -13,7 +13,7 @@
           <Indicator-pedals />
         </section>
 
-        <Indicator-rpm />
+        <Indicator-rpm :max="maxRpm" :current="currentRpm" />
     </div>
 </template>
 
@@ -36,6 +36,10 @@ export default {
     IndicatorPedals,
   },
   props: {},
+  data: () => ({
+    maxRpm: 12000,
+    currentRpm: 8000
+  })
 };
 </script>
 
