@@ -1,12 +1,20 @@
 <template>
   <div class="gear">
-    <p> 4 </p>
+    <span>4</span>
+    <Icon-gear />
   </div>
 </template>
 
 <script>
+import {
+  IconGear
+} from '../icons/index';
+
 export default {
   name: 'IndicatorGear',
+  components: {
+    IconGear
+  },
   data() {
     return {
       msg: 'Welcome to Your Vue.js App',
@@ -19,8 +27,6 @@ export default {
 <style>
   .gear {
     align-items: center;
-    background-color: lightgrey;
-    border: 1px solid grey;
     display: flex;
     justify-content: center;
     height: 50px;
@@ -31,5 +37,10 @@ export default {
     font-family: monospace;
     font-size: 2em;
     margin: 0;
+  }
+  .gear svg {
+    margin-left: 10px;
+    height: 50px;
+    width: 50px;
   }
 </style>

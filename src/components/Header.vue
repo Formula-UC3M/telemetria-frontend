@@ -42,7 +42,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
 .data-header {
-  background-color: #252525;
   display: flex;
   justify-content: space-between;
   margin: 0;
