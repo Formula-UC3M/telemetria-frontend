@@ -1,23 +1,26 @@
 <template>
-  <div class="clutch"> </div>
+  <div class="clutch" :class="{'clutch--active': active}">&nbsp;</div>
 </template>
 
 <script>
 export default {
   name: 'IndicatorClutch',
-  data() {
-    return {
-      msg: 'Here Clutch data',
-    };
-  },
+  props: {
+    active: Boolean,
+    default: false
+  }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
   .clutch {
-    background-color: red;
+    border-radius: 50%;
     height: 30px;
     width: 30px;
+  }
+
+  .clutch--active {
+    background-color: red;
   }
 </style>

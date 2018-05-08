@@ -1,61 +1,46 @@
 <template>
   <div class="rpm">
-    <span>12000 rpm</span>
-    <div class="porcentaje">
-      <div class="fill"></div>
-    </div>
+    <span class="rpm__label">{{ current }} rpm</span>
+    <Ui-progress-bar :percentage="percentage" />
   </div>
 </template>
 
 <script>
-export default {
-  name: 'IndicatorRpm',
-  data() {
-    return {
-      msg: 'Mensaje de RPM faster and furious!!!',
-    };
-  },
-};
+  import {
+    UiProgressBar
+  } from '../ui/index';
+
+  export default {
+    name: 'IndicatorRpm',
+    components: {
+      UiProgressBar
+    },
+    props: {
+      max: {
+        type: Number,
+        default: 0
+      },
+      current: {
+        type: Number,
+        default: 0
+      }
+    },
+    data() {
+      return {
+        msg: 'Mensaje de RPM faster and furious!!!'
+      };
+    },
+    computed: {
+      percentage() {
+        return this.current !== 0 || this.max !== 0 ? (this.current * 100) / this.max : 0;
+      }
+    }
+  };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-  .rpm {
-    width: 30vw;
+  .rpm__label {
+    color: red;
   }
-
-    .rpm span {
-      width: 100%;
-      height: 4vh;
-      font-size: 2em;
-    }
-
-    .rpm .porcentaje {
-      background-color: lightgrey;
-      height: 4vh;
-      margin: 1vh 0;
-      position: relative;
-      text-align: left;
-      width: 90%;
-    }
-      .rpm .porcentaje .fill {
-        background-color: green;
-        height: 100%;
-        width: 60%;
-      }
-
-      .rpm .porcentaje .cut {
-        position: absolute;
-        right: -5vh;
-        background-color: red;
-        height: 100%;
-        width: 4vh;
-      }
-
-    .rpm .embrague {
-      width: 90%;
-      height: 4vh;
-      background-color: yellow;
-      margin: 1vh 0;
-    }
 </style>
