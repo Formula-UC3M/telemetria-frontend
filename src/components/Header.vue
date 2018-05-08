@@ -38,7 +38,7 @@ export default {
   props: {},
   data: () => ({
     maxRpm: 12000,
-    currentRpm: 8000
+    currentRpm: 8200
   })
 };
 </script>
