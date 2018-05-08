@@ -1,8 +1,8 @@
 <template>
   <div class="rpm">
-    <span>12000 rpm</span>
-    <div class="porcentaje">
-      <div class="fill"></div>
+    <span class="rpm__label">{{ current }} rpm</span>
+    <div class="rpm__level progressbar progressbar--horizontal">
+      <span class="progressbar__inner" :style="{ 'width': `${_percentage}%` }"></span>
     </div>
   </div>
 </template>
@@ -10,52 +10,50 @@
 <script>
 export default {
   name: 'IndicatorRpm',
+  props: {
+    max: {
+      type: Number,
+      default: 0
+    },
+    current: {
+      type: Number,
+      default: 0
+    }
+  },
   data() {
     return {
-      msg: 'Mensaje de RPM faster and furious!!!',
+      msg: 'Mensaje de RPM faster and furious!!!'
     };
   },
+  computed: {
+    _percentage() {
+      return (this.current * 100) / this.max;
+    }
+  }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-  .rpm {
-    width: 30vw;
+  .rpm__label {
+    color: red;
   }
 
-    .rpm span {
-      width: 100%;
-      height: 4vh;
-      font-size: 2em;
-    }
+  .progressbar--horizontal {
+    background-color: grey;
+    min-width: 300px;
+    height: 20px;
+    width: 100%;
+    position: relative;
+  }
 
-    .rpm .porcentaje {
-      background-color: lightgrey;
-      height: 4vh;
-      margin: 1vh 0;
-      position: relative;
-      text-align: left;
-      width: 90%;
-    }
-      .rpm .porcentaje .fill {
-        background-color: green;
-        height: 100%;
-        width: 60%;
-      }
-
-      .rpm .porcentaje .cut {
-        position: absolute;
-        right: -5vh;
-        background-color: red;
-        height: 100%;
-        width: 4vh;
-      }
-
-    .rpm .embrague {
-      width: 90%;
-      height: 4vh;
-      background-color: yellow;
-      margin: 1vh 0;
+    .progressbar__inner {
+      background: green;
+      content: '';
+      top: 0;
+      left: 0;
+      height: 100%;
+      position: absolute;
+      z-index: 1;
     }
 </style>
