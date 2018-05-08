@@ -1,37 +1,56 @@
 <template>
   <div class="pedals">
-    <div class="pedal brake-pedal">
-      freno
+    <div class="pedal pedal--brake">
+      <Icon-pedal class="pedal__icon" mode="brake" />
+      <Ui-progress-bar :percentage="brake" />
     </div>
-    <div class="pedal throttle-pedal">
-      acelerador
+    <div class="pedal pedal--throttle">
+      <Icon-pedal class="pedal__icon" mode="gas" />
+      <Ui-progress-bar :percentage="throttle" />
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'IndicatorPedals',
-  data() {
-    return {
-      msg: 'Here Stub data',
-    };
-  },
-};
+
+  import {
+    IconPedal
+  } from '../icons/index';
+
+  import {
+    UiProgressBar
+  } from '../ui/index';
+
+  export default {
+    name: 'IndicatorPedals',
+    components: {
+      IconPedal,
+      UiProgressBar
+    },
+    data() {
+      return {
+        msg: 'Here Stub data',
+        brake: 30,
+        throttle: 40
+      };
+    },
+  };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
   .pedals {
-    background-color: rebeccapurple;
     display: flex;
-    height: 135px;
-    justify-content: space-between;
-    width: 60px;
+    flex-direction: column;
   }
+
   .pedal {
-    background-color: #d9d9d9;
-    height: 100%;
-    width: 23px;
+    display: flex;
+    align-items: center;
+  }
+
+  .pedal__icon {
+    margin-right: 10px;
+    width: 35px;
   }
 </style>
