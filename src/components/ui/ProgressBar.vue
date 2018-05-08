@@ -1,6 +1,6 @@
 <template>
   <div class="progressbar" :class="[classOrientation]">
-    <span class="progressbar__inner" :style="{ 'width': `${percentage}%` }"></span>
+    <span class="progressbar__inner" :style="[classStyle]"></span>
   </div>
 </template>
 
@@ -17,6 +17,10 @@
     computed: {
       classOrientation() {
         return `progressbar--${this.orientation}`;
+      },
+      classStyle() {
+        const _orientation = this.orientation === 'horizontal' ? 'width' : 'height';
+        return { [_orientation]: `${this.percentage}%` }
       }
     }
   }
@@ -24,7 +28,7 @@
 
 <style>
   .progressbar__inner {
-    top: bottom;
+    bottom: 0;
     left: 0;
     position: absolute;
     z-index: 1;
@@ -32,7 +36,6 @@
 
   .progressbar--horizontal {
     background-color: grey;
-    min-width: 300px;
     height: 20px;
     width: 100%;
     position: relative;
@@ -45,9 +48,8 @@
 
   .progressbar--vertical {
     background-color: grey;
-    min-width: 300px;
-    height: 20px;
-    width: 100%;
+    height: 100%;
+    width: 20px;
     position: relative;
   }
 

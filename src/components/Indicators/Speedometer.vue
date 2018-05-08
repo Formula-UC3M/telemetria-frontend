@@ -1,13 +1,20 @@
 <template>
-  <div class="kmh">
-    <p> <span> 237 </span> km/h  </p>
-
+  <div class="speedometer">
+    <Icon-speedometer class="speedometer__icon" />
+    <span class="speedometer__label"> 237 km/h</span>
   </div>
 </template>
 
 <script>
+import {
+  IconSpeedometer
+} from '../icons/index';
+
 export default {
   name: 'IndicatorSpeedometer',
+  components: {
+    IconSpeedometer
+  },
   data() {
     return {
       msg: 'Welcome to Your Vue.js App',
@@ -18,15 +25,17 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-  .kmh {
-    color: #d9d9d9;
-    line-height: 10vh;
-    font-size: 1.25em;
+  .speedometer {
+    display: flex;
+    align-items: center;
   }
-  .kmh p {
-    margin: 0;
+  .speedometer__label {
+    font-size: 2rem;
+    margin-left: 10px;
   }
-  .kmh span {
-    font-size: 2em;
+
+  .speedometer__icon {
+    height: 35px;
+    width: 35px;
   }
 </style>

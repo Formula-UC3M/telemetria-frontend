@@ -1,7 +1,7 @@
 <template>
   <div class="gear">
-    <span>4</span>
-    <Icon-gear />
+    <Icon-gear class="gear__icon" />
+    <span class="gear__label">4</span>
   </div>
 </template>
 
@@ -29,18 +29,14 @@ export default {
     align-items: center;
     display: flex;
     justify-content: center;
-    height: 50px;
-    width: 50px;
   }
-  .gear p {
-    color: #0e0e0e;
-    font-family: monospace;
-    font-size: 2em;
-    margin: 0;
-  }
-  .gear svg {
-    margin-left: 10px;
-    height: 50px;
-    width: 50px;
-  }
+    .gear__label {
+      color: #0e0e0e;
+      font-size: 2em;
+    }
+    .gear__icon {
+      margin-right: 10px;
+      height: 35px;
+      width: 35px;
+    }
 </style>

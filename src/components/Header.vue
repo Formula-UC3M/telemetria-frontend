@@ -1,19 +1,21 @@
 <template>
      <div class="data-header">
-        <section class="speed-gear-clutch">
+        <section class="car-details">
           <Indicator-speedometer />
-          <div class="gear-clutch">
+          <div class="car__gear">
             <Indicator-gear />
-            <Indicator-clutch />
+            <Indicator-clutch :active="clutchActive" />
           </div>
 
         </section>
 
-        <section class="">
+        <section class="car-pedals">
           <Indicator-pedals />
         </section>
 
-        <Indicator-rpm :max="maxRpm" :current="currentRpm" />
+        <section class="car-rpm">
+          <Indicator-rpm :max="maxRpm" :current="currentRpm" />
+        </section>
     </div>
 </template>
 
@@ -38,7 +40,8 @@ export default {
   props: {},
   data: () => ({
     maxRpm: 12000,
-    currentRpm: 8200
+    currentRpm: 8200,
+    clutchActive: true
   })
 };
 </script>
@@ -50,19 +53,25 @@ export default {
   justify-content: space-between;
   margin: 0;
   padding: 10px;
-  width: 100%;
 }
-.speed-gear-clutch {
+.car-details {
   border: 2px solid #d9d9d9;
   padding: 10px;
+  width: 30%;
 }
-.gear-clutch {
-  align-items: flex-end;
+
+.car-pedals {
+  width: 30%;
+}
+
+.car-rpm {
+  width: 30%;
+}
+
+.car__gear {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  margin: 0;
-  padding: 0;
-  width: 100%;
 }
 
 </style>
