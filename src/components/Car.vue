@@ -66,8 +66,8 @@
 <script>
 import {
   IndicatorDirection,
-  IndicatorBrakeTemp,
-  IndicatorRadiator,
+  /* IndicatorBrakeTemp,
+  IndicatorRadiator, */
 } from '../components/Indicators/index';
 
 export default {

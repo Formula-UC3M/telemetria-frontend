@@ -6,6 +6,6 @@ describe('Mockup.vue', () => {
     const Constructor = Vue.extend(Mockup);
     const vm = new Constructor().$mount();
     expect(vm.$el.querySelector('.rpm span').textContent)
-      .toEqual('12000 rpm');
+      .toEqual('8200 rpm');
   });
 });
