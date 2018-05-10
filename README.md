@@ -1,13 +1,15 @@
 ![header](.osweekends/img/OSW-project-GitHub-template-header.jpg)
 
-![travis](https://img.shields.io/travis/OSWeekends/formula-uc3m.svg)
-![issues abiertos](https://img.shields.io/github/issues/OSWeekends/formula-uc3m.svg)
-![issues promedio](https://img.shields.io/issuestats/i/github/OSWeekends/formula-uc3m.svg)
-![PR Abiertos](https://img.shields.io/github/issues-pr/OSWeekends/formula-uc3m.svg)
-![PR Promedio](https://img.shields.io/issuestats/p/github/OSWeekends/formula-uc3m.svg)
-![último commit](https://img.shields.io/github/last-commit/OSWeekends/formula-uc3m/master.svg)
-![TOP Lang](https://img.shields.io/github/languages/top/OSWeekends/formula-uc3m.svg)
-![total lang](https://img.shields.io/github/languages/count/OSWeekends/formula-uc3m.svg)
+![travis](https://img.shields.io/travis/Formula-UC3M/telemetria-frontend.svg)
+[![issues abiertos](https://img.shields.io/github/issues/Formula-UC3M/telemetria-documentacion.svg)](https://github.com/Formula-UC3M/telemetria-documentacion/issues)
+![issues promedio](https://img.shields.io/issuestats/i/github/Formula-UC3M/telemetria-frontend.svg)
+[![PR Abiertos](https://img.shields.io/github/issues-pr/Formula-UC3M/telemetria-frontend.svg)](https://github.com/Formula-UC3M/telemetria-frontend/pulls)
+![PR Promedio](https://img.shields.io/issuestats/p/github/Formula-UC3M/telemetria-frontend.svg)
+![último commit](https://img.shields.io/github/last-commit/Formula-UC3M/telemetria-frontend.svg)
+![TOP Lang](https://img.shields.io/github/languages/top/Formula-UC3M/telemetria-frontend.svg)
+![total lang](https://img.shields.io/github/languages/count/Formula-UC3M/telemetria-frontend.svg)
+
+[![GitHub license](https://img.shields.io/github/license/Formula-UC3M/telemetria-frontend.svg?style=for-the-badge)](https://github.com/Formula-UC3M/telemetria-frontend/blob/master/LICENSE)
 
 # Fórmula UC3M
 
