@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <Header />
-    <!-- <Car /> -->
+    <Car />
   </div>
 </template>
 
