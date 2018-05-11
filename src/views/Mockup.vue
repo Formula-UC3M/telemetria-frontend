@@ -4,7 +4,44 @@
       <Header class="header-component" />
     </div>
     <div class="page-body">
-      <Car class="car-component" />
+      <div class="page-body__car">
+        <Car class="car-component" />
+      </div>
+      <div class="page-body__info">
+          <Element-info>
+            <span class="element-info__title">Radiator 1</span>
+            <div class="element-info__icon">
+              <Icon-fan />
+            </div>
+            <dl class="element-info-data">
+              <div class="element-info-data__item">
+                <dt class="element-info-data__label">Inlet temp</dt>
+                <dd class="element-info-data__value">20 ºC</dd>
+              </div>
+              <div class="element-info-data__item">
+                <dt class="element-info-data__label">Outlet temp</dt>
+                <dd class="element-info-data__value">20 ºC</dd>
+              </div>
+            </dl>
+          </Element-info>
+
+          <Element-info>
+            <span class="element-info__title">Radiator 2</span>
+            <div class="element-info__icon">
+              <Icon-fan />
+            </div>
+            <dl class="element-info-data">
+              <div class="element-info-data__item">
+                <dt class="element-info-data__label">Inlet temp</dt>
+                <dd class="element-info-data__value">20 ºC</dd>
+              </div>
+              <div class="element-info-data__item">
+                <dt class="element-info-data__label">Outlet temp</dt>
+                <dd class="element-info-data__value">20 ºC</dd>
+              </div>
+            </dl>
+          </Element-info>
+      </div>
     </div>
   </div>
 </template>
@@ -16,11 +53,21 @@ import {
   Header,
 } from '../components/index';
 
+import {
+  ElementInfo
+} from '../components/ui/index';
+
+import {
+  IconFan
+} from '../components/icons/index';
+
 export default {
   name: 'Mockup',
   components: {
     Car,
     Header,
+    ElementInfo,
+    IconFan
   },
   data() {
     return {
@@ -30,8 +77,7 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss">
   .page {
     display: flex;
     flex-direction: column;
@@ -40,12 +86,22 @@ export default {
     .page-body {
       align-content: center;
       display: flex;
+      flex-direction: row;
       flex: 1;
     }
 
-  .car-component {
+  .page-body__car {
     align-self: center;
-    width: 70%;
+    width: 100%;
+  }
+
+  .page-body__info {
+    align-self: center;
+    margin: 0 50px;
+
+    & > * + * {
+      margin-top: 30px;
+    }
   }
 
 </style>

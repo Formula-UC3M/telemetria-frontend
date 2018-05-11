@@ -44,13 +44,16 @@
   }
 
   .pedal {
-    display: flex;
     align-items: center;
+    display: flex;
     flex-direction: column-reverse;
   }
 
+  .pedal + .pedal {
+    margin-left: 10px;
+  }
+
   .pedal__icon {
-    margin-right: 10px;
     width: 35px;
   }
 </style>
