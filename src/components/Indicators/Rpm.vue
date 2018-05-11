@@ -1,6 +1,9 @@
 <template>
   <div class="rpm">
-    <span class="rpm__label">{{ current }} rpm</span>
+    <div class="rpm-label">
+      <span class="rpm-label__num">{{ current }}</span>
+      <span class="rpm-label__unit">rpm</span>
+    </div>
     <Ui-progress-bar :percentage="percentage" />
   </div>
 </template>

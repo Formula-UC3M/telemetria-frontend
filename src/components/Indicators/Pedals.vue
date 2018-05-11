@@ -2,11 +2,11 @@
   <div class="pedals">
     <div class="pedal pedal--brake">
       <Icon-pedal class="pedal__icon" mode="brake" />
-      <Ui-progress-bar :percentage="brake" />
+      <Ui-progress-bar orientation="vertical" :percentage="brake" />
     </div>
     <div class="pedal pedal--throttle">
       <Icon-pedal class="pedal__icon" mode="gas" />
-      <Ui-progress-bar :percentage="throttle" />
+      <Ui-progress-bar orientation="vertical" :percentage="throttle" />
     </div>
   </div>
 </template>
@@ -41,12 +41,12 @@
 <style>
   .pedals {
     display: flex;
-    flex-direction: column;
   }
 
   .pedal {
     display: flex;
     align-items: center;
+    flex-direction: column-reverse;
   }
 
   .pedal__icon {
