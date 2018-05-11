@@ -1,7 +1,11 @@
 <template>
   <div class="page">
-    <Header />
-    <Car />
+    <div class="page-header">
+      <Header class="header-component" />
+    </div>
+    <div class="page-body">
+      <Car class="car-component" />
+    </div>
   </div>
 </template>
 
@@ -28,14 +32,20 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-body {
-  margin: 0;
-  padding: 0;
-}
+  .page {
+    display: flex;
+    flex-direction: column;
+  }
 
-.page {
-  width: 100%;
-}
+    .page-body {
+      align-content: center;
+      display: flex;
+      flex: 1;
+    }
 
+  .car-component {
+    align-self: center;
+    width: 70%;
+  }
 
 </style>
