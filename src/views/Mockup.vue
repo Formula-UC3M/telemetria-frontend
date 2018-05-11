@@ -1,9 +1,9 @@
 <template>
   <div class="page">
-    <div class="page-header">
+    <section class="page-header">
       <Header class="header-component" />
-    </div>
-    <div class="page-body">
+    </section>
+    <section class="page-body">
       <div class="page-body__car">
         <Car class="car-component" />
       </div>
@@ -42,7 +42,62 @@
             </dl>
           </Element-info>
       </div>
-    </div>
+    </section>
+
+    <section class="page-footer">
+      <div class="wheels">
+         <Element-info>
+            <span class="element-info__title">Brakes</span>
+            <div class="element-info__icon">
+              <Icon-brake />
+            </div>
+            <dl class="element-info-data">
+              <div class="element-info-data__item">
+                <dt class="element-info-data__label">Front Left</dt>
+                <dd class="element-info-data__value">20 ºC</dd>
+              </div>
+              <div class="element-info-data__item">
+                <dt class="element-info-data__label">Front Right</dt>
+                <dd class="element-info-data__value">20 ºC</dd>
+              </div>
+              <div class="element-info-data__item">
+                <dt class="element-info-data__label">Back left</dt>
+                <dd class="element-info-data__value">20 ºC</dd>
+              </div>
+              <div class="element-info-data__item">
+                <dt class="element-info-data__label">Back Right</dt>
+                <dd class="element-info-data__value">20 ºC</dd>
+              </div>
+            </dl>
+          </Element-info>
+      </div>
+      <div class="uprights">
+         <Element-info>
+            <span class="element-info__title">Uprights</span>
+            <div class="element-info__icon">
+              <Icon-suspension />
+            </div>
+            <dl class="element-info-data">
+              <div class="element-info-data__item">
+                <dt class="element-info-data__label">Front Left</dt>
+                <dd class="element-info-data__value">20 ºC</dd>
+              </div>
+              <div class="element-info-data__item">
+                <dt class="element-info-data__label">Front Right</dt>
+                <dd class="element-info-data__value">20 ºC</dd>
+              </div>
+              <div class="element-info-data__item">
+                <dt class="element-info-data__label">Back left</dt>
+                <dd class="element-info-data__value">20 ºC</dd>
+              </div>
+              <div class="element-info-data__item">
+                <dt class="element-info-data__label">Back Right</dt>
+                <dd class="element-info-data__value">20 ºC</dd>
+              </div>
+            </dl>
+          </Element-info>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -58,7 +113,9 @@ import {
 } from '../components/ui/index';
 
 import {
-  IconFan
+  IconFan,
+  IconBrake,
+  IconSuspension
 } from '../components/icons/index';
 
 export default {
@@ -67,7 +124,9 @@ export default {
     Car,
     Header,
     ElementInfo,
-    IconFan
+    IconFan,
+    IconBrake,
+    IconSuspension
   },
   data() {
     return {
@@ -101,6 +160,14 @@ export default {
 
     & > * + * {
       margin-top: 30px;
+    }
+  }
+
+  .page-footer {
+    display: flex;
+    padding: 50px;
+    & > * + * {
+      margin-left: 50px;
     }
   }
 

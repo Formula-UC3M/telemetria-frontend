@@ -1,10 +1,12 @@
 <template>
-  <div class="rpm">
+  <div class="rpm rpm--horizontal">
     <div class="rpm-label">
       <span class="rpm-label__num">{{ current }}</span>
-      <span class="rpm-label__unit">rpm</span>
+      <span class="rpm-label__unit"> RPM</span>
     </div>
-    <Ui-progress-bar :percentage="percentage" />
+    <div class="rpm-progress">
+      <Ui-progress-bar :percentage="percentage" />
+    </div>
   </div>
 </template>
 
@@ -41,9 +43,24 @@
   };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
-  .rpm__label {
-    color: red;
+<style lang="scss">
+  .rpm {
+    display: flex;
+  }
+
+  .rpm--horizontal {
+    align-items: center;
+    .rpm-label {
+      width: 40%;
+    }
+    .rpm-progress {
+      margin-left: 30px;
+      flex: 1;
+    }
+  }
+
+  .rpm-label {
+    font-family: 'Digit';
+    font-size: 2rem;
   }
 </style>

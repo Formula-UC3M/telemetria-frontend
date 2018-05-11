@@ -12,37 +12,82 @@
         <section class="car-pedals">
           <Indicator-pedals />
         </section>
+
+        <section class="car-motor">
+          <Element-info>
+            <div class="element-info__icon">
+              <Icon-Temp />
+            </div>
+            <dl class="element-info-data">
+              <div class="element-info-data__item">
+                <dd class="element-info-data__value">20 ºC</dd>
+              </div>
+            </dl>
+          </Element-info>
+          <Element-info>
+            <div class="element-info__icon">
+              <Icon-engine />
+            </div>
+            <dl class="element-info-data">
+              <div class="element-info-data__item">
+                <dd class="element-info-data__value">120 ºC</dd>
+              </div>
+            </dl>
+          </Element-info>
+          <Element-info>
+            <div class="element-info__icon">
+              <Icon-battery />
+            </div>
+            <dl class="element-info-data">
+              <div class="element-info-data__item">
+                <dd class="element-info-data__value">12.50 V</dd>
+              </div>
+            </dl>
+          </Element-info>
+        </section>
     </div>
 </template>
 
 <script>
-import {
-  IndicatorSpeedometer,
-  IndicatorGear,
-  IndicatorRpm,
-  IndicatorClutch,
-  IndicatorPedals,
-} from '../components/Indicators/index';
+  import {
+    IconBattery,
+    IconEngine,
+    IconTemp
+  } from '../components/icons/index';
+  import {
+    ElementInfo
+  } from '../components/ui/index';
 
-export default {
-  name: 'Header',
-  components: {
+  import {
     IndicatorSpeedometer,
     IndicatorGear,
     IndicatorRpm,
     IndicatorClutch,
     IndicatorPedals,
-  },
-  props: {},
-  data: () => ({
-    maxRpm: 12000,
-    currentRpm: 8200,
-    clutchActive: true
-  })
-};
+  } from '../components/Indicators/index';
+
+  export default {
+    name: 'Header',
+    components: {
+      ElementInfo,
+      IndicatorSpeedometer,
+      IndicatorGear,
+      IndicatorRpm,
+      IndicatorClutch,
+      IndicatorPedals,
+      IconBattery,
+      IconEngine,
+      IconTemp
+    },
+    props: {},
+    data: () => ({
+      maxRpm: 12000,
+      currentRpm: 8200,
+      clutchActive: true
+    })
+  };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
   .data-header {
     display: flex;
@@ -75,5 +120,9 @@ export default {
       flex: 1;
       font-size: 5rem;
     }
+
+  .car-motor .element-info__icon {
+      width: 35px;
+  }
 
 </style>
