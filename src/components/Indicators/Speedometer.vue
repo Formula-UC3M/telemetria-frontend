@@ -1,7 +1,9 @@
 <template>
   <div class="speedometer">
-    <Icon-speedometer class="speedometer__icon" />
-    <span class="speedometer__label"> 237 km/h</span>
+    <div class="speedometer-label">
+      <span class="speedometer-label__num">237</span>
+      <span class="speedometer-label__unit">KM/H</span>
+    </div>
   </div>
 </template>
 
@@ -29,13 +31,16 @@ export default {
     display: flex;
     align-items: center;
   }
-  .speedometer__label {
-    font-size: 2rem;
+  .speedometer-label {
+    font-size: 7rem;
     margin-left: 10px;
   }
+    .speedometer-label__num,
+    .speedometer-label__unit {
+      font-family: 'Digit'
+    }
 
-  .speedometer__icon {
-    height: 35px;
-    width: 35px;
-  }
+    .speedometer-label__unit {
+      font-size: 2rem;
+    }
 </style>

@@ -1,20 +1,16 @@
 <template>
      <div class="data-header">
+       <section class="car-speedometer">
+         <indicator-speedometer />
+         <Indicator-rpm :max="maxRpm" :current="currentRpm" />
+       </section>
         <section class="car-details">
-          <Indicator-speedometer />
-          <div class="car__gear">
-            <Indicator-gear />
-            <Indicator-clutch :active="clutchActive" />
-          </div>
-
+          <Indicator-gear class="car-details__gear" />
+          <Indicator-clutch class="car-details__clutch" :active="clutchActive" />
         </section>
 
         <section class="car-pedals">
           <Indicator-pedals />
-        </section>
-
-        <section class="car-rpm">
-          <Indicator-rpm :max="maxRpm" :current="currentRpm" />
         </section>
     </div>
 </template>
@@ -48,30 +44,36 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-.data-header {
-  display: flex;
-  justify-content: space-between;
-  margin: 0;
-  padding: 10px;
-}
-.car-details {
-  border: 2px solid #d9d9d9;
-  padding: 10px;
-  width: 30%;
-}
+  .data-header {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 10px;
+  }
+  .car-details {
+    border: 2px solid #d9d9d9;
+    padding: 10px;
+    width: 30%;
+  }
 
-.car-pedals {
-  width: 30%;
-}
+  .car-pedals {
+    display: flex;
+    flex: 1;
+  }
 
-.car-rpm {
-  width: 30%;
-}
+  .car-speedometer {
+    flex: 1;
+  }
 
-.car__gear {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+  .car-details {
+    display:flex;
+    margin: 0 10%;
+    width: 150px;
+  }
+
+    .car-details__gear {
+      flex: 1;
+      font-size: 5rem;
+    }
 
 </style>
