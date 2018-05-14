@@ -54,6 +54,8 @@
   }
 
   .pedal__icon {
+    flex: 0 0 35%;
+    margin-top: 10px;
     width: 35px;
   }
 </style>
