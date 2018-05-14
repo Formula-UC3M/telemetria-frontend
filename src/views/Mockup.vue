@@ -110,7 +110,7 @@ export default {
       msg: 'Welcome to Your Vue.js App',
       maxRpm: 12000,
       currentRpm: 8200,
-      clutchActive: true,
+      clutchActive: false,
       mockData,
       IconBattery,
       IconEngine,
