@@ -1,12 +1,32 @@
 <template>
   <div class="element-info element-info--horizontal">
-    <slot></slot>
+    <span v-if="title" class="element-info__title">{{ title }}</span>
+    <div v-if="icon" class="element-info__icon">
+      <component :is="icon" />
+    </div>
+    <dl class="element-info-data">
+      <Element-info-item
+        v-for="({ label, value }, index) in data"
+        :key="index"
+        :label="label"
+        :value="value" />
+    </dl>
   </div>
 </template>
 
 <script>
+  import ElementInfoItem from './ElementInfoItem';
+
   export default {
-   name: 'ElementInfo'
+   name: 'ElementInfo',
+   components: {
+     ElementInfoItem
+   },
+   props: {
+     title: String,
+     icon: Object,
+     data: Array
+   }
   };
 </script>
 
@@ -36,28 +56,14 @@
     display: flex;
     flex: 1;
     font-size: 1.5rem;
+    flex-wrap: wrap;
   }
 
   .element-info--horizontal {
-    .element-info-data {
-      flex-wrap: wrap;
-    }
-
-    .element-info-data__label {
+    .element-info-item__label {
         text-align: left;
         flex: 1;
     }
-  }
-
-  .element-info-data__item {
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    flex: 0 0 100%;
-  }
-
-  .element-info-data__value {
-    font-family: 'Digit';
   }
 
 </style>
