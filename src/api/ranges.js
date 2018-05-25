@@ -6,6 +6,7 @@ import {
 function getRanges() {
   return axios.get(`${API_URL}/api/ranges`, {
     headers: {
+      'Authentication': `Berarer ${localStorage.getItem('token')}`,
       'Access-Control-Allow-Origin': '*'
     }
   });

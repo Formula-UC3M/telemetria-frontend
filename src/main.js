@@ -22,7 +22,7 @@ new Vue({
     // this.$mqtt.subscribe('formula/#');
   },
   created() {
-    this.$store.dispatch('fetchConfig');
+    this.$store.dispatch('login');
   },
   render: h => h(App),
 }).$mount('#app');
