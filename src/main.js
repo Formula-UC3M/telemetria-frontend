@@ -3,8 +3,10 @@ import App from './App.vue';
 import router from './router';
 import store from './store/index';
 
+import { API_URL } from './api/index';
+
 import VueMqtt from 'vue-mqtt';
-Vue.use(VueMqtt, 'http://localhost:3001', {});
+Vue.use(VueMqtt, API_URL, {});
 
 Vue.config.productionTip = false;
 
@@ -18,6 +20,9 @@ new Vue({
   },
   mounted() {
     // this.$mqtt.subscribe('formula/#');
+  },
+  created() {
+    this.$store.dispatch('fetchConfig');
   },
   render: h => h(App),
 }).$mount('#app');

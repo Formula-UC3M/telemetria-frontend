@@ -1,10 +1,7 @@
-import { mutations } from './mutation';
-
-const state = {
-  config: {}
-}
+import actions from './action';
+import mutations from './mutation';
 
 export default {
-  state,
+  actions,
   mutations
 }
