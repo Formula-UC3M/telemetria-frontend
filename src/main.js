@@ -14,14 +14,17 @@ new Vue({
   router,
   store,
   mqtt: {
-    'formula/+' (data, topic) {
+    'formula-fake-data/+' (data, topic) {
       // console.log(data.toString(), topic);
     }
   },
   mounted() {
-    // this.$mqtt.subscribe('formula/#');
+    // this.$mqtt.subscribe('formula-fake-data/#');
     this.$store.dispatch('fetchConfig');
-    this.$store.dispatch('login');
+    this.$store.dispatch('login', {
+      email: 'test@test.com',
+      password: '1234'
+    });
   },
   render: h => h(App),
 }).$mount('#app');

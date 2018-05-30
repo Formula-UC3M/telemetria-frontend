@@ -8,8 +8,8 @@ export const LOGOUT = '@@auth/LOGOUT';
 export const TOKEN = '@@auth/TOKEN';
 export const DELETE_TOKEN = '@@auth/DELETE_TOKEN';
 
-const login = ({ commit }) => {
-  api.auth.login('test@test.com', '1234')
+const login = ({ commit }, { email, password }) => {
+  api.auth.login(email, password)
     .then(res => {
       commit(TOKEN, res.data.token);
       commit(LOGIN_SUCCESS);
