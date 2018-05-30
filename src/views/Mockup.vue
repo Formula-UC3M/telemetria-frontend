@@ -75,9 +75,10 @@ import {
   IndicatorSpeedometer,
   IndicatorGear,
   IndicatorRpm,
-  IndicatorClutch,
   IndicatorPedals,
 } from '../components/Indicators/index';
+
+import IndicatorClutch from '../feature/indicators/Clutch'
 
 import {
   ElementInfo
@@ -110,7 +111,7 @@ export default {
       msg: 'Welcome to Your Vue.js App',
       maxRpm: 12000,
       currentRpm: 8200,
-      clutchActive: false,
+      clutchActive: true,
       mockData,
       IconBattery,
       IconEngine,
