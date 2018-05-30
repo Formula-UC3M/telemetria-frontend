@@ -1,13 +1,11 @@
 import {
-  LOGIN_SUCCESS,
-  LOGIN_FAILED
+  LOGIN_SUCCESS
 } from './action';
 
 const mutations = {
-  [LOGIN_SUCCESS] (state, { payload: token }) {
+  [LOGIN_SUCCESS] (state, { token }) {
     state.token = token;
-  },
-  [LOGIN_FAILED](state) {}
+  }
 };
 
 export default mutations
