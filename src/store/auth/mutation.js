@@ -1,11 +1,17 @@
 import {
-  LOGIN_SUCCESS
+  TOKEN,
+  LOGIN_SUCCESS,
+  LOGIN_FAILED
 } from './action';
 
 const mutations = {
-  [LOGIN_SUCCESS] (state, { token }) {
+  [TOKEN] (state, token) {
     state.token = token;
-  }
+    //TODO: Refactor
+    localStorage.setItem('token', token);
+  },
+  [LOGIN_SUCCESS]() {},
+  [LOGIN_FAILED]() {}
 };
 
 export default mutations

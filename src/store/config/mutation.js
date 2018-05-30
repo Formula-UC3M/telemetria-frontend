@@ -1,23 +1,15 @@
 import {
-  FETCH_DONE,
   FETCH_FAILED,
-  FETCH
+  FETCH_DONE
 } from './action';
 
 const mutations = {
-  [FETCH_DONE] (state, { payload }) {
-    console.log(state);
-    const {
-      created_at,
-      __v,
-      _id,
-      version,
-      ...result
-    } = payload;
-
-    state.config = result;
+  [FETCH_DONE] (state, payload) {
+    /* eslint-disable-next-line */
+    const { created_at, __v, _id, version, ...rest } = payload;
+    state = payload;
   },
-  [FETCH_FAILED] (state){}
+  [FETCH_FAILED](){}
 };
 
 export default mutations

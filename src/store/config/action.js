@@ -7,13 +7,8 @@ export const FETCH_FAILED = '@@config/FETCH_FAILED';
 
 const fetchConfig = ({ commit }) => {
   api.ranges.getRanges()
-  .then(res => {
-      commit({
-        type: FETCH_DONE,
-        payload: res.data
-      });
-    })
-  .catch(err => commit(FETCH_FAILED));
+    .then(res => commit(FETCH_DONE, res.data))
+    .catch(err => commit(FETCH_FAILED, err));
 }
 
 export default {

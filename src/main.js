@@ -15,13 +15,12 @@ new Vue({
   store,
   mqtt: {
     'formula/+' (data, topic) {
-      console.log(data.toString(), topic);
+      // console.log(data.toString(), topic);
     }
   },
   mounted() {
     // this.$mqtt.subscribe('formula/#');
-  },
-  created() {
+    this.$store.dispatch('fetchConfig');
     this.$store.dispatch('login');
   },
   render: h => h(App),
