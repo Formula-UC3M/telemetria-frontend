@@ -5,10 +5,7 @@
 <script>
 export default {
   name: 'IndicatorClutch',
-  props: {
-    active: Boolean,
-    default: false
-  }
+  props: ['active']
 };
 </script>
 

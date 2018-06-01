@@ -75,9 +75,10 @@ import {
   IndicatorSpeedometer,
   IndicatorGear,
   IndicatorRpm,
-  IndicatorClutch,
   IndicatorPedals,
 } from '../components/Indicators/index';
+
+import { default as IndicatorClutchMqtt } from '../feature/sensors/Clutch';
 
 import {
   ElementInfo
@@ -102,8 +103,8 @@ export default {
     IndicatorSpeedometer,
     IndicatorGear,
     IndicatorRpm,
-    IndicatorClutch,
-    IndicatorPedals
+    IndicatorPedals,
+    'Indicator-clutch': IndicatorClutchMqtt
   },
   data() {
     return {
