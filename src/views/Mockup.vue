@@ -72,13 +72,15 @@ import {
 } from '../components/index';
 
 import {
-  IndicatorSpeedometer,
   IndicatorGear,
   IndicatorRpm,
   IndicatorPedals,
 } from '../components/Indicators/index';
 
-import { default as IndicatorClutchMqtt } from '../feature/sensors/Clutch';
+import {
+  IndicatorClutchMqtt,
+  IndicatorSpeedometerMqtt,
+} from '../feature/sensors/index';
 
 import {
   ElementInfo
@@ -100,10 +102,10 @@ export default {
   components: {
     Car,
     ElementInfo,
-    IndicatorSpeedometer,
     IndicatorGear,
     IndicatorRpm,
     IndicatorPedals,
+    'Indicator-speedometer': IndicatorSpeedometerMqtt,
     'Indicator-clutch': IndicatorClutchMqtt
   },
   data() {

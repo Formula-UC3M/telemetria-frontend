@@ -14,14 +14,10 @@ import {
 
 export default {
   name: 'IndicatorSpeedometer',
+  props: ['current'],
   components: {
     IconSpeedometer
-  },
-  data() {
-    return {
-      msg: 'Welcome to Your Vue.js App',
-    };
-  },
+  }
 };
 </script>
 

@@ -8,13 +8,13 @@ const withMqttSubscription = (component) => {
       ...inheritedProps
     ],
     mqtt: {
-      'formula-fake-data/clutch' (data) {
+      [inheritedProps.topic] (data) {
         console.log(`----> ${data.toString()}`);
         this.active = Boolean(data.toString())
       }
     },
     mounted() {
-      this.$mqtt.subscribe('formula-fake-data/clutch');
+      this.$mqtt.subscribe(inheritedProps.topic);
     },
     render(createElement) {
       return createElement(component, {
