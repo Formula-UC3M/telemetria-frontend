@@ -3,9 +3,7 @@
     <section class="page-header">
       <section class="car-speedometer">
         <Indicator-speedometer />
-        <Indicator-rpm
-          :max="maxRpm"
-          :current="currentRpm" />
+        <Indicator-rpm />
        </section>
         <section class="car-details">
           <Indicator-gear
@@ -72,13 +70,13 @@ import {
 } from '../components/index';
 
 import {
-  IndicatorGear,
-  IndicatorRpm,
   IndicatorPedals,
 } from '../components/Indicators/index';
 
 import {
   IndicatorClutchMqtt,
+  IndicatorGearMqtt,
+  IndicatorRpmMqtt,
   IndicatorSpeedometerMqtt,
 } from '../feature/sensors/index';
 
@@ -102,18 +100,14 @@ export default {
   components: {
     Car,
     ElementInfo,
-    IndicatorGear,
-    IndicatorRpm,
     IndicatorPedals,
+    'Indicator-gear': IndicatorGearMqtt,
+    'Indicator-rpm': IndicatorRpmMqtt,
     'Indicator-speedometer': IndicatorSpeedometerMqtt,
     'Indicator-clutch': IndicatorClutchMqtt
   },
   data() {
     return {
-      msg: 'Welcome to Your Vue.js App',
-      maxRpm: 12000,
-      currentRpm: 8200,
-      clutchActive: false,
       mockData,
       IconBattery,
       IconEngine,

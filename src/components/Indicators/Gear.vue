@@ -8,11 +8,7 @@
 
 export default {
   name: 'IndicatorGear',
-  data() {
-    return {
-      msg: 'Welcome to Your Vue.js App',
-    };
-  },
+  props: ['current'],
 };
 </script>
 

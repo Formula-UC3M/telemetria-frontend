@@ -9,8 +9,8 @@ const withMqttSubscription = (component) => {
     ],
     mqtt: {
       [inheritedProps.topic] (data) {
-        console.log(`----> ${data.toString()}`);
-        this.active = Boolean(data.toString())
+        console.log(`----> ${inheritedProps.topic} -- ${data.toString()}`);
+        this[inheritedProps.mqttProp] = data.toString();
       }
     },
     mounted() {
@@ -22,7 +22,9 @@ const withMqttSubscription = (component) => {
           ...this.$props
         },
         data() {
-          return { active: this.active }
+          return {
+            [inheritedProps.mqttProp]: this[inheritedProps.mqttProp]
+          }
         }
       })
     }

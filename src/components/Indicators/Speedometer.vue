@@ -1,7 +1,7 @@
 <template>
   <div class="speedometer">
     <div class="speedometer-label">
-      <span class="speedometer-label__num">237</span>
+      <span class="speedometer-label__num">{{ current }}</span>
       <span class="speedometer-label__unit">KM/H</span>
     </div>
   </div>

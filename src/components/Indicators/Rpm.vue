@@ -20,16 +20,7 @@
     components: {
       UiProgressBar
     },
-    props: {
-      max: {
-        type: Number,
-        default: 0
-      },
-      current: {
-        type: Number,
-        default: 0
-      }
-    },
+    props: ['current'],
     data() {
       return {
         msg: 'Mensaje de RPM faster and furious!!!'
