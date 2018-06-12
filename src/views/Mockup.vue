@@ -73,6 +73,8 @@ import {
   IndicatorPedals
 } from '../components/Indicators/index';
 
+import IndicatorClutch from '../feature/indicators/Clutch'
+
 import {
   IndicatorClutchMqtt,
   IndicatorGearMqtt,
