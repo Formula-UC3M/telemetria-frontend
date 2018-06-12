@@ -55,7 +55,10 @@
           :title="mockData.brakes.title"
           :data="mockData.brakes.data" />
       </div>
-      <Indicator-uprights />
+      <Indicator-uprights
+        :title="mockData.uprights.title"
+        :uprights="mockData.uprights.data"
+      />
     </section>
   </div>
 </template>
