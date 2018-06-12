@@ -2,11 +2,11 @@
   <div class="pedals">
     <div class="pedal pedal--brake">
       <Icon-pedal class="pedal__icon" mode="brake" />
-      <Ui-progress-bar orientation="vertical" :percentage="brake" />
+      <Ui-progress-bar orientation="vertical" :percentage="_brakePos" />
     </div>
     <div class="pedal pedal--throttle">
       <Icon-pedal class="pedal__icon" mode="gas" />
-      <Ui-progress-bar orientation="vertical" :percentage="throttle" />
+      <Ui-progress-bar orientation="vertical" :percentage="_throttlePos" />
     </div>
   </div>
 </template>
@@ -23,16 +23,35 @@
 
   export default {
     name: 'IndicatorPedals',
+    props: {
+      brakeCurrent: {
+        type: Number,
+        default: 1
+      },
+      brakeMax: {
+        type: Number,
+        default: 120
+      },
+      throttleCurrent: {
+        type: Number,
+        default: 1
+      },
+      throttleMax: {
+        type: Number,
+        default: 120
+      }
+    },
+    computed: {
+      _brakePos: function() {
+        return (this.brakeCurrent * 100) / this.brakeMax;
+      },
+      _throttlePos: function() {
+        return (this.throttleCurrent * 100) / this.throttleMax;
+      }
+    },
     components: {
       IconPedal,
       UiProgressBar
-    },
-    data() {
-      return {
-        msg: 'Here Stub data',
-        brake: 30,
-        throttle: 40
-      };
     },
   };
 </script>

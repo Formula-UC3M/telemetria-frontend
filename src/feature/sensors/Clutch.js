@@ -2,8 +2,10 @@ import { IndicatorClutch } from '../../components/Indicators/index';
 import withMqttSubscription from '../../components/hoc/withMqttSubscription';
 
 const options = {
-  topic: 'formula-fake-data/clutch',
-  mqttProp: 'active'
+  channels: [{
+    topic: 'formula-fake-data/clutch',
+    mqttProp: 'active'
+  }]
 };
 
 export default withMqttSubscription(IndicatorClutch, options);

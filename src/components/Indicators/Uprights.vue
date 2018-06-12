@@ -8,26 +8,25 @@
 </template>
 
 <script>
-  import {
-    IconSuspension
-  } from '../icons/index';
+  import { IconSuspension } from '../icons/index';
 
   import {
     ElementInfo
   } from '../ui/index';
 
   export default {
-    name: 'IndicatorSpeedometer',
+    name: 'IndicatorUprights',
     props: {
       title: String,
       uprights: Array
     },
     components: {
       ElementInfo,
-      IconSuspension
+    },
+    data() {
+      return {
+        IconSuspension
+      }
     }
   };
 </script>
-
-<style>
-</style>
