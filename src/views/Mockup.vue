@@ -55,12 +55,7 @@
           :title="mockData.brakes.title"
           :data="mockData.brakes.data" />
       </div>
-      <div class="uprights">
-        <Element-info
-          :icon="IconSuspension"
-          :title="mockData.uprights.title"
-          :data="mockData.uprights.data" />
-      </div>
+      <Indicator-uprights />
     </section>
   </div>
 </template>
@@ -72,7 +67,7 @@ import {
 } from '../components/index';
 
 import {
-  IndicatorPedals,
+  IndicatorPedals
 } from '../components/Indicators/index';
 
 import {
@@ -80,6 +75,7 @@ import {
   IndicatorGearMqtt,
   IndicatorRpmMqtt,
   IndicatorSpeedometerMqtt,
+  IndicatorUprightsMqtt,
 } from '../feature/sensors/index';
 
 import {
@@ -107,6 +103,7 @@ export default {
     'Indicator-gear': IndicatorGearMqtt,
     'Indicator-rpm': IndicatorRpmMqtt,
     'Indicator-speedometer': IndicatorSpeedometerMqtt,
+    'Indicator-uprights': IndicatorUprightsMqtt,
     'Indicator-clutch': IndicatorClutchMqtt
   },
   data() {
