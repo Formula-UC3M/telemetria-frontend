@@ -1,34 +1,22 @@
-import Vue from 'vue';
-
-const withMqttSubscription = (component) => {
-  const inheritedProps = component.props || [];
-
-  return Vue.component('withMqtt', {
-    props: [
-      ...inheritedProps
-    ],
-    mqtt: {
-      [inheritedProps.topic] (data) {
-        console.log(`----> ${inheritedProps.topic} -- ${data.toString()}`);
-        this[inheritedProps.mqttProp] = data.toString();
-      }
-    },
-    mounted() {
-      this.$mqtt.subscribe(inheritedProps.topic);
-    },
-    render(createElement) {
-      return createElement(component, {
-        props: {
-          ...this.$props
-        },
-        data() {
-          return {
-            [inheritedProps.mqttProp]: this[inheritedProps.mqttProp]
-          }
-        }
-      })
+const withMqttSubscription = (component, options) => ({
+  props: [options.mqttProp],
+  mqtt: {
+    [options.topic] (data) {
+      //console.log(`----> ${options.topic} -- ${data.toString()}`);
+      this[options.mqttProp] = data.toString();
     }
-  });
-}
+  },
+  mounted() {
+    this.$mqtt.subscribe(options.topic);
+  },
+  render(createElement) {
+    //console.log(this.$props);
+    return createElement(component, {
+      functional: true,
+      attrs: this.$attrs,
+      props: this.$props
+    });
+  }
+});
 
 export default withMqttSubscription;

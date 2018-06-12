@@ -1,7 +1,9 @@
 import { IndicatorSpeedometer } from '../../components/Indicators/index';
 import withMqttSubscription from '../../components/hoc/withMqttSubscription';
 
-IndicatorSpeedometer.props.topic = 'formula-fake-data/speed';
-IndicatorSpeedometer.props.mqttProp = 'current';
+const options = {
+  topic: 'formula-fake-data/speed',
+  mqttProp: 'current'
+};
 
-export default withMqttSubscription(IndicatorSpeedometer);
+export default withMqttSubscription(IndicatorSpeedometer, options);

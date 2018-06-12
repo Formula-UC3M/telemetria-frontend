@@ -9,8 +9,7 @@
           <Indicator-gear
             class="car-details__gear" />
           <Indicator-clutch
-            class="car-details__clutch"
-            :active="clutchActive" />
+            class="car-details__clutch" />
         </section>
 
         <section class="car-pedals">
@@ -27,6 +26,9 @@
           <Element-info
             :icon="IconBattery"
             :data="mockData.battery.data" />
+          <Element-info
+            :icon="IconOil"
+            :data="mockData.oil.data" />
         </section>
     </section>
     <section class="page-body">
@@ -90,6 +92,7 @@ import {
   IconSuspension,
   IconBattery,
   IconEngine,
+  IconOil,
   IconTemp
 } from '../components/icons/index';
 
@@ -112,6 +115,7 @@ export default {
       IconBattery,
       IconEngine,
       IconTemp,
+      IconOil,
       IconFan,
       IconBrake,
       IconSuspension

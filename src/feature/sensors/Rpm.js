@@ -1,7 +1,9 @@
 import { IndicatorRpm } from '../../components/Indicators/index';
 import withMqttSubscription from '../../components/hoc/withMqttSubscription';
 
-IndicatorRpm.props.topic = 'formula-fake-data/ecu/rpm';
-IndicatorRpm.props.mqttProp = 'current';
+const options = {
+  topic: 'formula-fake-data/ecu/rpm',
+  mqttProp: 'current'
+};
 
-export default withMqttSubscription(IndicatorRpm);
+export default withMqttSubscription(IndicatorRpm, options);

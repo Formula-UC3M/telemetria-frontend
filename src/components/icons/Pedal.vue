@@ -50,11 +50,11 @@
 
 <script>
 export default {
-  name: "IconPedal",
+  name: 'IconPedal',
   props: {
     mode: {
       type: String,
-      validator: (val) => ['cluth', 'brake', 'gas'].includes(val)
+      validator: (val) => ['clutch', 'brake', 'gas'].includes(val)
     }
   }
 };

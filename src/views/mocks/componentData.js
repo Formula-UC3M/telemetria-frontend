@@ -9,6 +9,11 @@ export default {
       value: '120 ºC'
     }]
   },
+  oil: {
+    data: [{
+      value: '120 ºC'
+    }]
+  },
   battery: {
     data: [{
       value: '12.5 V'
