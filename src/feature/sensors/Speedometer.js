@@ -8,4 +8,4 @@ const options = {
   }]
 };
 
-export default withMqttSubscription(IndicatorSpeedometer, options);
+export default withMqttSubscription(options)(IndicatorSpeedometer);

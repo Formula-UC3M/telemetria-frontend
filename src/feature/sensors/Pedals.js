@@ -22,4 +22,4 @@ const options = {
   ]
 };
 
-export default withMqttSubscription(IndicatorPedals, options);
+export default withMqttSubscription(options)(IndicatorPedals);

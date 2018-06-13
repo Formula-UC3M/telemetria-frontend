@@ -1,11 +1,16 @@
 <template>
-  <div class="clutch" :class="{'clutch--active': active }">&nbsp;</div>
+  <div class="clutch" :class="{'clutch--active': activeVal }">&nbsp;</div>
 </template>
 
 <script>
 export default {
   name: 'IndicatorClutch',
-  props: ['active']
+  props: {
+    active: Number
+  },
+  computed: {
+    activeVal() { return this.active }
+  }
 };
 </script>
 

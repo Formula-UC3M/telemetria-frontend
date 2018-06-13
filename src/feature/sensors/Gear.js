@@ -8,4 +8,4 @@ const options = {
   }]
 };
 
-export default withMqttSubscription(IndicatorGear, options);
+export default withMqttSubscription(options)(IndicatorGear);

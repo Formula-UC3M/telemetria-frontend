@@ -1,4 +1,4 @@
-const withMqttSubscription = (component, options) => {
+const withMqttSubscription = options => Component => {
 
   const channels = options.channels.reduce((acc, channel) => {
     return {
@@ -9,15 +9,21 @@ const withMqttSubscription = (component, options) => {
     }
   }, {});
 
+  const propData = () => options.channels.reduce((acc, channel) => {
+    return {
+      [`__${channel.mqttProp}`]: 0
+    }
+  });
+
   return {
-    props: options.channels.map(channel => channel.mqttProp),
+    name: Component.name + 'HOC',
+    data: propData,
     mqtt: channels,
     mounted() {
       options.channels.map(channel => this.$mqtt.subscribe(channel.topic));
     },
     render(createElement) {
-      console.log(this.$props);
-      return createElement(component, {
+      return createElement(Component, {
         functional: true,
         attrs: this.$attrs,
         props: this.$props
