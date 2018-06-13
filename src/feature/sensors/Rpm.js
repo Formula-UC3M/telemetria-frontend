@@ -4,7 +4,7 @@ import withMqttSubscription from '../../components/hoc/withMqttSubscription';
 const options = {
   channels: [{
     topic: 'formula-fake-data/ecu/rpm',
-    mqttProp: 'current'
+    mqttProp: 'rpmCurrent'
   }]
 };
 

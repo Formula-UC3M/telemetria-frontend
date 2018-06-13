@@ -42,11 +42,11 @@
       }
     },
     computed: {
-      _brakePos: function() {
-        return (this.brakeCurrent * 100) / this.brakeMax;
+      _brakePos() {
+        return this.brakeCurrent * 100 / this.brakeMax;
       },
-      _throttlePos: function() {
-        return (this.throttleCurrent * 100) / this.throttleMax;
+      _throttlePos() {
+        return this.throttleCurrent * 100 / this.throttleMax;
       }
     },
     components: {

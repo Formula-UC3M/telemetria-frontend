@@ -1,11 +1,11 @@
 <template>
   <div class="rpm rpm--horizontal">
     <div class="rpm-label">
-      <span class="rpm-label__num">{{ current }}</span>
+      <span class="rpm-label__num">{{ rpmCurrent }}</span>
       <span class="rpm-label__unit"> RPM</span>
     </div>
     <div class="rpm-progress">
-      <Ui-progress-bar :percentage="percentage" />
+      <Ui-progress-bar :percentage="_rpmPos" />
     </div>
   </div>
 </template>
@@ -17,19 +17,20 @@
 
   export default {
     name: 'IndicatorRpm',
-    components: {
-      UiProgressBar
-    },
-    props: ['current'],
-    data() {
-      return {
-        msg: 'Mensaje de RPM faster and furious!!!'
-      };
+    props: {
+      rpmMax: {
+        type: Number,
+        default: 12000
+      },
+      rpmCurrent: Number
     },
     computed: {
-      percentage() {
-        return this.current !== 0 || this.max !== 0 ? (this.current * 100) / this.max : 0;
+      _rpmPos() {
+        return this.rpmCurrent * 100 / this.rpmMax;
       }
+    },
+    components: {
+      UiProgressBar
     }
   };
 </script>
