@@ -32,8 +32,7 @@ export default {
   mqtt: {
     'formula-fake-data/speed' (data) {
       if (data instanceof Uint8Array) {
-        const speed = data[0]
-        this.speed = speed
+        this.speed = data[0]
       } else {
         this.speed = convert(data)
       }
