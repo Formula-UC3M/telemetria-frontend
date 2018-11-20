@@ -31,9 +31,7 @@
       }
     },
     data() {
-      return {
-        msg: 'Mensaje de RPM faster and furious!!!'
-      };
+      return {};
     },
     computed: {
       percentage() {

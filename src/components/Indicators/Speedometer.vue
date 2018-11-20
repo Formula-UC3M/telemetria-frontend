@@ -11,11 +11,11 @@
 import {
   IconSpeedometer
 } from '../icons/index';
+
 function convert(Uint8Arr) {
   const length = Uint8Arr.length;
   const buffer = Buffer.from(Uint8Arr);
-  const result = buffer.readUIntBE(0, length);
-  return result;
+  return buffer.readUIntBE(0, length);
 }
 
 export default {

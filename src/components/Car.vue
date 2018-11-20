@@ -17,11 +17,7 @@
 </template>
 
 <script>
-import {
-  IndicatorDirection,
-  /* IndicatorBrakeTemp,
-  IndicatorRadiator, */
-} from '../components/Indicators/index';
+import { IndicatorDirection, } from '../components/Indicators/index';
 
 export default {
   name: 'Car',

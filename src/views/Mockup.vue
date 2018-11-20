@@ -3,9 +3,7 @@
     <section class="page-header">
       <section class="car-speedometer">
         <Indicator-speedometer />
-        <Indicator-rpm
-          :max="maxRpm"
-          :current="currentRpm" />
+        <Indicator-rpm :max="maxRpm" :current="currentRpm" />
        </section>
         <section class="car-details">
           <Indicator-gear
@@ -22,13 +20,13 @@
         <section class="car-motor">
           <Element-info
             :icon="IconTemp"
-            :data="mockData.water.data" />
+            :data="waterTemp" />
           <Element-info
             :icon="IconEngine"
-            :data="mockData.engine.data" />
+            :data="oilTemp" />
           <Element-info
             :icon="IconBattery"
-            :data="mockData.battery.data" />
+            :data="batteryTemp" />
         </section>
     </section>
     <section class="page-body">
@@ -67,10 +65,7 @@
 
 <script>
 
-import {
-  Car
-} from '../components/index';
-
+import { Car } from '../components/index';
 import {
   IndicatorSpeedometer,
   IndicatorGear,
@@ -79,10 +74,7 @@ import {
 } from '../components/Indicators/index';
 
 import IndicatorClutch from '../feature/indicators/Clutch'
-
-import {
-  ElementInfo
-} from '../components/ui/index';
+import { ElementInfo } from '../components/ui/index';
 
 import {
   IconFan,
@@ -94,7 +86,19 @@ import {
 } from '../components/icons/index';
 
 import { default as mockData } from './mocks/componentData';
-
+const bindings = {
+  'formula-fake-data/ecu/rpm': 'currentRpm',
+  'formula-fake-data/clutch': 'clutchActive',
+  'ecu/water_temp_eng': '',
+  'ecu/oil_temp_eng': '',
+  'ecu/rpm': '',
+  'pitot': '',
+  'direction': '',
+  'upright_temperature': '',
+  'throttle_position': '',
+  'brake_position': '',
+  'speed': '',
+}
 export default {
   name: 'Mockup',
   components: {
@@ -108,10 +112,12 @@ export default {
   },
   data() {
     return {
-      msg: 'Welcome to Your Vue.js App',
-      maxRpm: 12000,
-      currentRpm: 8200,
+      maxRpm: 120,
+      currentRpm: 0,
       clutchActive: true,
+      waterTemp: [{value: '0 ºC'}],
+      oilTemp: [{value: '0 ºC'}],
+      batteryTemp: [{value: '0 ºC'}],
       mockData,
       IconBattery,
       IconEngine,
@@ -120,6 +126,35 @@ export default {
       IconBrake,
       IconSuspension
     }
+  },
+  mqtt: {
+    'formula-fake-data/+' (data, route) {
+      console.log('1:', route, data);
+      //this[bindings[route]] = data[0]
+      switch ( route ) {
+        case 'pitot':
+        case 'direction':
+        case 'upright_temperature':
+        case 'throttle_position':
+        case 'brake_position':
+        case 'speed':
+      }
+    },
+    'formula-fake-data/ecu/+' (data, route) {
+      console.log('2:', data, route);
+      // this[bindings[route]] = data[0]
+      switch ( route ) {
+        case 'formula-fake-data/ecu/water_temp_eng':
+          this.waterTemp = [{value: `${data[0]} ºC`}]
+          break
+        case 'formula-fake-data/ecu/oil_temp_eng':
+          this.oilTemp = [{value: `${data[0]} ºC`}]
+          break
+        case 'formula-fake-data/ecu/rpm':
+          this.currentRpm = data[0]
+          break
+      }
+    },
   },
 };
 </script>

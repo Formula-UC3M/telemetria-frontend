@@ -22,6 +22,7 @@ new Vue({
       password: '1234'
     })
     this.$mqtt.subscribe('formula-fake-data/+')
+    this.$mqtt.subscribe('formula-fake-data/ecu/+')
   },
   render: h => h(App)
 }).$mount('#app')

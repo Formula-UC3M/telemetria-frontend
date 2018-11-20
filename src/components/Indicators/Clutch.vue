@@ -1,5 +1,5 @@
 <template>
-  <div class="clutch" :class="{'clutch--active': active}">&nbsp;</div>
+  <div class="clutch" :class="{'clutch--active': !!active}">&nbsp;</div>
 </template>
 
 <script>
