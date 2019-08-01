@@ -1,61 +1,64 @@
 <template>
-  <div class="rpm">
-    <span>12000 rpm</span>
-    <div class="porcentaje">
-      <div class="fill"></div>
+  <div class="rpm rpm--horizontal">
+    <div class="rpm-label">
+      <span class="rpm-label__num">{{ current }}</span>
+      <span class="rpm-label__unit"> RPM</span>
+    </div>
+    <div class="rpm-progress">
+      <Ui-progress-bar :percentage="percentage" />
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'IndicatorRpm',
-  data() {
-    return {
-      msg: 'Mensaje de RPM faster and furious!!!',
-    };
-  },
-};
+  import {
+    UiProgressBar
+  } from '../ui/index';
+
+  export default {
+    name: 'IndicatorRpm',
+    components: {
+      UiProgressBar
+    },
+    props: {
+      max: {
+        type: Number,
+        default: 0
+      },
+      current: {
+        type: Number,
+        default: 0
+      }
+    },
+    data() {
+      return {};
+    },
+    computed: {
+      percentage() {
+        return this.current !== 0 || this.max !== 0 ? (this.current * 100) / this.max : 0;
+      }
+    }
+  };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
+<style lang="scss">
   .rpm {
-    width: 30vw;
+    display: flex;
   }
 
-    .rpm span {
-      width: 100%;
-      height: 4vh;
-      font-size: 2em;
+  .rpm--horizontal {
+    align-items: center;
+    .rpm-label {
+      width: 40%;
     }
-
-    .rpm .porcentaje {
-      background-color: lightgrey;
-      height: 4vh;
-      margin: 1vh 0;
-      position: relative;
-      text-align: left;
-      width: 90%;
+    .rpm-progress {
+      margin-left: 30px;
+      flex: 1;
     }
-      .rpm .porcentaje .fill {
-        background-color: green;
-        height: 100%;
-        width: 60%;
-      }
+  }
 
-      .rpm .porcentaje .cut {
-        position: absolute;
-        right: -5vh;
-        background-color: red;
-        height: 100%;
-        width: 4vh;
-      }
-
-    .rpm .embrague {
-      width: 90%;
-      height: 4vh;
-      background-color: yellow;
-      margin: 1vh 0;
-    }
+  .rpm-label {
+    font-family: 'Digit';
+    font-size: 2rem;
+  }
 </style>

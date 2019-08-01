@@ -1,32 +1,65 @@
 <template>
-  <div class="kmh">
-    <p> <span> 237 </span> km/h  </p>
-
+  <div class="speedometer">
+    <div class="speedometer-label">
+      <span class="speedometer-label__num">{{speed}}</span>
+      <span class="speedometer-label__unit">KM/H</span>
+    </div>
   </div>
 </template>
 
 <script>
+import {
+  IconSpeedometer
+} from '../icons/index';
+
+function convert(Uint8Arr) {
+  const length = Uint8Arr.length;
+  const buffer = Buffer.from(Uint8Arr);
+  return buffer.readUIntBE(0, length);
+}
+
 export default {
   name: 'IndicatorSpeedometer',
+  components: {
+    IconSpeedometer
+  },
   data() {
     return {
       msg: 'Welcome to Your Vue.js App',
+      speed: 0
     };
   },
+  mqtt: {
+    'formula-fake-data/speed' (data) {
+      if (data instanceof Uint8Array) {
+        this.speed = data[0]
+      } else {
+        this.speed = convert(data)
+      }
+    }
+  },
+  mounted () {
+    console.log(this.$mqtt)
+  }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-  .kmh {
-    color: #d9d9d9;
-    line-height: 10vh;
-    font-size: 1.25em;
+  .speedometer {
+    display: flex;
+    align-items: center;
   }
-  .kmh p {
-    margin: 0;
+  .speedometer-label {
+    font-size: 7rem;
+    margin-left: 10px;
   }
-  .kmh span {
-    font-size: 2em;
-  }
+    .speedometer-label__num,
+    .speedometer-label__unit {
+      font-family: 'Digit'
+    }
+
+    .speedometer-label__unit {
+      font-size: 2rem;
+    }
 </style>

@@ -1,9 +1,7 @@
 <template>
-
   <div class="brake">
     <p> Datos de temperatura de freno</p>
   </div>
-
 </template>
 
 
