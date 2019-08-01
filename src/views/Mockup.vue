@@ -86,7 +86,7 @@ import {
 } from '../components/icons/index';
 
 import { default as mockData } from './mocks/componentData';
-const bindings = {
+/*const bindings = {
   'formula-fake-data/ecu/rpm': 'currentRpm',
   'formula-fake-data/clutch': 'clutchActive',
   'ecu/water_temp_eng': '',
@@ -98,7 +98,7 @@ const bindings = {
   'throttle_position': '',
   'brake_position': '',
   'speed': '',
-}
+}*/
 export default {
   name: 'Mockup',
   components: {
