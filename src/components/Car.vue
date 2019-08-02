@@ -17,15 +17,10 @@
 </template>
 
 <script>
-import { IndicatorDirection, } from '../components/Indicators/index';
-
-export default {
-  name: 'Car',
-  components: {
-    IndicatorDirection,
-  },
-  props: {},
-};
+  export default {
+    name: 'Car',
+    props: {},
+  };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

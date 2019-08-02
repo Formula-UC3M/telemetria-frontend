@@ -1,6 +1,6 @@
 <template>
   <div class="gear">
-    <span class="gear__label">4</span>
+    <span class="gear__label">N</span>
   </div>
 </template>
 

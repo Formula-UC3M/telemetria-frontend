@@ -8,9 +8,6 @@
         <section class="car-details">
           <Indicator-gear
             class="car-details__gear" />
-          <Indicator-clutch
-            class="car-details__clutch"
-            :active="clutchActive" />
         </section>
 
         <section class="car-pedals">
@@ -54,10 +51,7 @@
           :data="mockData.brakes.data" />
       </div>
       <div class="uprights">
-        <Element-info
-          :icon="IconSuspension"
-          :title="mockData.uprights.title"
-          :data="mockData.uprights.data" />
+        <Indicator-upright />
       </div>
     </section>
   </div>
@@ -71,9 +65,9 @@ import {
   IndicatorGear,
   IndicatorRpm,
   IndicatorPedals,
+  IndicatorUpright
 } from '../components/Indicators/index';
 
-import IndicatorClutch from '../feature/indicators/Clutch'
 import { ElementInfo } from '../components/ui/index';
 
 import {
@@ -86,19 +80,8 @@ import {
 } from '../components/icons/index';
 
 import { default as mockData } from './mocks/componentData';
-/*const bindings = {
-  'formula-fake-data/ecu/rpm': 'currentRpm',
-  'formula-fake-data/clutch': 'clutchActive',
-  'ecu/water_temp_eng': '',
-  'ecu/oil_temp_eng': '',
-  'ecu/rpm': '',
-  'pitot': '',
-  'direction': '',
-  'upright_temperature': '',
-  'throttle_position': '',
-  'brake_position': '',
-  'speed': '',
-}*/
+import { mapState } from 'vuex'
+
 export default {
   name: 'Mockup',
   components: {
@@ -107,14 +90,12 @@ export default {
     IndicatorSpeedometer,
     IndicatorGear,
     IndicatorRpm,
-    IndicatorClutch,
-    IndicatorPedals
+    IndicatorPedals,
+    IndicatorUpright
   },
   data() {
     return {
-      maxRpm: 120,
       currentRpm: 0,
-      clutchActive: true,
       waterTemp: [{value: '0 ºC'}],
       oilTemp: [{value: '0 ºC'}],
       batteryTemp: [{value: '0 ºC'}],
@@ -127,35 +108,39 @@ export default {
       IconSuspension
     }
   },
+  computed: {
+    maxRpm() {
+      return 15000;
+    }
+  },
   mqtt: {
-    'formula-fake-data/+' (data, route) {
-      console.log('1:', route, data);
-      //this[bindings[route]] = data[0]
+    'fake/ecu/+' (data, route) {
       switch ( route ) {
-        case 'pitot':
-        case 'direction':
-        case 'upright_temperature':
-        case 'throttle_position':
-        case 'brake_position':
-        case 'speed':
-      }
-    },
-    'formula-fake-data/ecu/+' (data, route) {
-      console.log('2:', data, route);
-      // this[bindings[route]] = data[0]
-      switch ( route ) {
-        case 'formula-fake-data/ecu/water_temp_eng':
+        case 'fake/ecu/water_temp_eng':
           this.waterTemp = [{value: `${data[0]} ºC`}]
           break
-        case 'formula-fake-data/ecu/oil_temp_eng':
+        case 'fake/ecu/oil_temp_eng':
           this.oilTemp = [{value: `${data[0]} ºC`}]
           break
-        case 'formula-fake-data/ecu/rpm':
+        case 'fake/ecu/rpm':
           this.currentRpm = data[0]
           break
       }
     },
-  },
+    'data/ecu/+' (data, route) {
+      switch ( route ) {
+        case 'data/ecu/water_temp_eng':
+          this.waterTemp = [{value: `${data[0]} ºC`}]
+          break
+        case 'data/ecu/oil_temp_eng':
+          this.oilTemp = [{value: `${data[0]} ºC`}]
+          break
+        case 'data/ecu/rpm':
+          this.currentRpm = data[0]
+          break
+      }
+    },
+  }
 };
 </script>
 

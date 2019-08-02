@@ -13,13 +13,14 @@
 
 <script>
 
+  import { IconPedal } from '../icons/index';
+  import { UiProgressBar } from '../ui/index';
+  import { convertU8 } from '../../utils/tools';
   import {
-    IconPedal
-  } from '../icons/index';
-
-  import {
-    UiProgressBar
-  } from '../ui/index';
+    ROUTES_PREFIX,
+    FAKE_DATA_ROUTES_PREFIX,
+    ROUTES_BY_COMPONENT
+  } from '../../utils/constants';
 
   export default {
     name: 'IndicatorPedals',
@@ -33,6 +34,20 @@
         brake: 30,
         throttle: 40
       };
+    },
+    mqtt: {
+      [`${ ROUTES_PREFIX }/${ ROUTES_BY_COMPONENT['Pedals-throttle'] }`] (data) {
+        this.throttle = convertU8(data);
+      },
+      [`${ FAKE_DATA_ROUTES_PREFIX }/${ ROUTES_BY_COMPONENT['Pedals-throttle'] }`] (data) {
+        this.throttle = convertU8(data);
+      },
+      [`${ ROUTES_PREFIX }/${ ROUTES_BY_COMPONENT['Pedals-brake'] }`] (data) {
+        this.brake = convertU8(data);
+      },
+      [`${ FAKE_DATA_ROUTES_PREFIX }/${ ROUTES_BY_COMPONENT['Pedals-brake'] }`] (data) {
+        this.brake = convertU8(data);
+      },
     },
   };
 </script>
