@@ -1,17 +1,17 @@
 export default {
   water: {
     data: [{
-      value: '120 ºC'
+      value: '-0 ºC'
     }]
   },
   engine: {
     data: [{
-      value: '120 ºC'
+      value: '-0 ºC'
     }]
   },
   battery: {
     data: [{
-      value: '12.5 V'
+      value: '-0 V'
     }]
   },
   radiator1: {
@@ -19,11 +19,11 @@ export default {
     data: [
       {
         label: 'Inlet Temp',
-        value: '20 ºC'
+        value: '-0 ºC'
       },
       {
         label: 'Outlet temp',
-        value: '20 ºC'
+        value: '-0 ºC'
       }
     ]
   },
@@ -32,11 +32,11 @@ export default {
     data: [
       {
         label: 'Inlet Temp',
-        value: '20 ºC'
+        value: '-0 ºC'
       },
       {
         label: 'Outlet temp',
-        value: '20 ºC'
+        value: '-0 ºC'
       }
     ]
   },
@@ -44,38 +44,38 @@ export default {
     title: 'Brakes',
     data: [{
       label: 'Front left',
-      value: '20 ºC'
+      value: '-0 ºC'
     },
     {
       label: 'Front right',
-      value: '20 ºC'
+      value: '-0 ºC'
     },
     {
       label: 'Back left',
-      value: '20 ºC'
+      value: '-0 ºC'
     },
     {
       label: 'Back right',
-      value: '20 ºC'
+      value: '-0 ºC'
     }]
   },
   uprights: {
     title: 'Uprights',
     data: [{
       label: 'Front left',
-      value: '20 ºC'
+      value: '-0 ºC'
     },
     {
       label: 'Front right',
-      value: '20 ºC'
+      value: '-0 ºC'
     },
     {
       label: 'Back left',
-      value: '20 ºC'
+      value: '-0 ºC'
     },
     {
       label: 'Back right',
-      value: '20 ºC'
+      value: '-0 ºC'
     }]
   }
 }
