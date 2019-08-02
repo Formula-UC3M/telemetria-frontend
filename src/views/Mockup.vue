@@ -80,7 +80,6 @@ import {
 } from '../components/icons/index';
 
 import { default as mockData } from './mocks/componentData';
-import { mapState } from 'vuex'
 
 export default {
   name: 'Mockup',
