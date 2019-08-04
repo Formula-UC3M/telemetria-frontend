@@ -29,7 +29,7 @@
         } else if (this.percentage >= 85) {
           color = 'red';
         }
-        console.log(color);
+
         return {
           [_orientation]: `${ this.percentage }%`,
           background: color
