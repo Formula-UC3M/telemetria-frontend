@@ -20,7 +20,20 @@
       },
       classStyle() {
         const _orientation = this.orientation === 'horizontal' ? 'width' : 'height';
-        return { [_orientation]: `${this.percentage}%` }
+        let color = "green";
+
+        if (this.percentage > 50 && this.percentage < 60) {
+          color = 'yellow';
+        } else if (this.percentage >= 60 && this.percentage < 85) {
+          color = 'orange';
+        } else if (this.percentage >= 85) {
+          color = 'red';
+        }
+        console.log(color);
+        return {
+          [_orientation]: `${ this.percentage }%`,
+          background: color
+        }
       }
     }
   }
