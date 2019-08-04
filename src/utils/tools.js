@@ -4,5 +4,5 @@ export const convertU8 = (data) => {
     }
 
     return Buffer.from(data).readUIntBE(0, data.length);
-  }
+}
   

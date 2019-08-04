@@ -10,7 +10,7 @@
    name: 'ElementInfoItem',
    props: {
      label: String,
-     value: String
+     value: String|Number
    }
   };
 </script>

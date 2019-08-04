@@ -1,13 +1,19 @@
 <template>
   <div class="page">
+    <section class="page-background">
+      <div class="page-background__back">
+        <Car class="car-component" />
+      </div>
+      <div class="page-background__front"></div>
+    </section>
     <section class="page-header">
       <section class="car-speedometer">
         <Indicator-speedometer />
-        <Indicator-rpm :max="maxRpm" :current="currentRpm" />
-       </section>
+          <Indicator-rpm/>
+        </section>
+
         <section class="car-details">
-          <Indicator-gear
-            class="car-details__gear" />
+          <Indicator-gear class="car-details__gear" />
         </section>
 
         <section class="car-pedals">
@@ -15,44 +21,15 @@
         </section>
 
         <section class="car-motor">
-          <Element-info
-            :icon="IconTemp"
-            :data="waterTemp" />
-          <Element-info
-            :icon="IconEngine"
-            :data="oilTemp" />
-          <Element-info
-            :icon="IconBattery"
-            :data="batteryTemp" />
+          <Indicator-water-temp />
+          <Indicator-oil-temp />
         </section>
     </section>
-    <section class="page-body">
-      <div class="page-body__car">
-        <Car class="car-component" />
-      </div>
-      <div class="page-body__info">
-        <Element-info
-          :icon="IconFan"
-          :title="mockData.radiator1.title"
-          :data="mockData.radiator1.data" />
-
-        <Element-info
-          :icon="IconFan"
-          :title="mockData.radiator2.title"
-          :data="mockData.radiator2.data" />
-      </div>
-    </section>
-
-    <section class="page-footer">
-      <div class="wheels">
-         <Element-info
-          :icon="IconBrake"
-          :title="mockData.brakes.title"
-          :data="mockData.brakes.data" />
-      </div>
-      <div class="uprights">
-        <Indicator-upright />
-      </div>
+    <section class="temperatures">
+      <Indicator-radiator />
+      <Indicator-brake-temp />
+      <Indicator-upright />
+      <Indicator-suspension />
     </section>
   </div>
 </template>
@@ -65,80 +42,31 @@ import {
   IndicatorGear,
   IndicatorRpm,
   IndicatorPedals,
-  IndicatorUpright
+  IndicatorUpright,
+  IndicatorWaterTemp,
+  IndicatorOilTemp,
+  IndicatorRadiator,
+  IndicatorBrakeTemp,
+  IndicatorSuspension
 } from '../components/Indicators/index';
-
-import { ElementInfo } from '../components/ui/index';
-
-import {
-  IconFan,
-  IconBrake,
-  IconSuspension,
-  IconBattery,
-  IconEngine,
-  IconTemp
-} from '../components/icons/index';
-
-import { default as mockData } from './mocks/componentData';
 
 export default {
   name: 'Mockup',
   components: {
     Car,
-    ElementInfo,
     IndicatorSpeedometer,
     IndicatorGear,
     IndicatorRpm,
     IndicatorPedals,
-    IndicatorUpright
+    IndicatorUpright,
+    IndicatorWaterTemp,
+    IndicatorOilTemp,
+    IndicatorRadiator,
+    IndicatorBrakeTemp,
+    IndicatorSuspension
   },
   data() {
-    return {
-      currentRpm: 0,
-      waterTemp: [{value: '0 ºC'}],
-      oilTemp: [{value: '0 ºC'}],
-      batteryTemp: [{value: '0 ºC'}],
-      mockData,
-      IconBattery,
-      IconEngine,
-      IconTemp,
-      IconFan,
-      IconBrake,
-      IconSuspension
-    }
-  },
-  computed: {
-    maxRpm() {
-      return 15000;
-    }
-  },
-  mqtt: {
-    'fake/ecu/+' (data, route) {
-      switch ( route ) {
-        case 'fake/ecu/water_temp_eng':
-          this.waterTemp = [{value: `${data[0]} ºC`}]
-          break
-        case 'fake/ecu/oil_temp_eng':
-          this.oilTemp = [{value: `${data[0]} ºC`}]
-          break
-        case 'fake/ecu/rpm':
-          this.currentRpm = data[0]
-          break
-      }
-    },
-    'data/ecu/+' (data, route) {
-      switch ( route ) {
-        case 'data/ecu/water_temp_eng':
-          this.waterTemp = [{value: `${data[0]} ºC`}]
-          break
-        case 'data/ecu/oil_temp_eng':
-          this.oilTemp = [{value: `${data[0]} ºC`}]
-          break
-        case 'data/ecu/rpm':
-          this.currentRpm = data[0]
-          break
-      }
-    },
+    return {}
   }
 };
 </script>
@@ -154,8 +82,10 @@ export default {
     justify-content: space-between;
     margin: 0;
     padding: 10px;
+    z-index: 1;
   }
   .car-details {
+    background-color: #fff;
     border: 2px solid #d9d9d9;
     padding: 10px;
     width: 30%;
@@ -174,43 +104,57 @@ export default {
     display:flex;
     margin: 0 10%;
     width: 150px;
-  }
-
-    .car-details__gear {
+    
+    &__gear {
       flex: 1;
       font-size: 5rem;
     }
+  }
 
   .car-motor .element-info__icon {
-      width: 35px;
+    width: 35px;
   }
 
-    .page-body {
-      align-content: center;
-      display: flex;
-      flex-direction: row;
-      flex: 1;
-    }
+  section.temperatures {
+    align-content: center;
+    /* display: flex;
+    flex-direction: column; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    z-index: 1;
 
-  .page-body__car {
-    align-self: center;
-    width: 100%;
-  }
+    &__info {
+      align-self: center;
+      margin: 0 50px;
 
-  .page-body__info {
-    align-self: center;
-    margin: 0 50px;
-
-    & > * + * {
-      margin-top: 30px;
+      & > * + * {
+        margin-top: 30px;
+      }
     }
   }
 
-  .page-footer {
-    display: flex;
-    padding: 50px;
-    & > * + * {
-      margin-left: 50px;
+  .page-background {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+    &__back,
+    &__front {
+      position: absolute;
+      width: 100%;
+      height: 100%;  
+    }
+
+    &__back {
+      align-self: center;
+      z-index: -2;
+    }
+
+    &__front {
+      background: #ffffffdb;
+      z-index: -1;
     }
   }
 

@@ -11,33 +11,39 @@
 </template>
 
 <script>
+  import { UiProgressBar } from '../ui/index';
+  import { convertU8 } from '../../utils/tools';
   import {
-    UiProgressBar
-  } from '../ui/index';
+    ROUTES_PREFIX,
+    FAKE_DATA_ROUTES_PREFIX,
+    ROUTES_BY_COMPONENT
+  } from '../../utils/constants';
 
   export default {
     name: 'IndicatorRpm',
     components: {
       UiProgressBar
     },
-    props: {
-      max: {
-        type: Number,
-        default: 0
-      },
-      current: {
-        type: Number,
-        default: 0
-      }
-    },
     data() {
-      return {};
+      return {
+        current: 0
+      };
     },
     computed: {
       percentage() {
-        return this.current !== 0 || this.max !== 0 ? (this.current * 100) / this.max : 0;
+        const { current } = this;
+        const { max, min } = this.$store.state.config.sensors.ecu.rpm;
+        return current !== min || max !== min ? (current * 100) / max : min;
       }
+    },
+    mqtt: {
+    [`${ ROUTES_PREFIX }/${ ROUTES_BY_COMPONENT['Rpm'] }`] (data) {
+      this.current = convertU8(data);
+    },
+    [`${ FAKE_DATA_ROUTES_PREFIX }/${ ROUTES_BY_COMPONENT['Rpm'] }`] (data) {
+      this.current = convertU8(data);
     }
+  }
   };
 </script>
 

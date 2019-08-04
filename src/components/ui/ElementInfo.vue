@@ -1,5 +1,5 @@
 <template>
-  <div class="element-info element-info--horizontal">
+  <div class="element-info element-info--horizontal" :title="info">
     <span v-if="title" class="element-info__title">{{ title }}</span>
     <div v-if="icon" class="element-info__icon">
       <component :is="icon" />
@@ -18,15 +18,16 @@
   import ElementInfoItem from './ElementInfoItem';
 
   export default {
-   name: 'ElementInfo',
-   components: {
-     ElementInfoItem
-   },
-   props: {
-     title: String,
-     icon: Object,
-     data: Array
-   }
+    name: 'ElementInfo',
+    components: {
+      ElementInfoItem
+    },
+    props: {
+      title: String,
+      icon: Object,
+      data: Array,
+      info: String
+    }
   };
 </script>
 
@@ -43,8 +44,9 @@
 
   .element-info__title {
     flex: 0 0 100%;
-    font-size: 2.5rem;
+    font-size: 1.9rem;
     line-height: 1.5;
+    font-weight: 500;
   }
 
   .element-info__icon {

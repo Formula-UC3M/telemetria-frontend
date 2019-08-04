@@ -1,14 +1,18 @@
 <template>
-  <Element-info
-    :icon="IconSuspension"
-    :title="title"
-    :data="data" />
+  <div class="uprights">
+    <Element-info
+      :icon="IconSuspension"
+      :title="title"
+      :data="data"
+      :info="info"
+    />
+  </div>
 </template>
 
 <script>
 import { ElementInfo } from '../ui/index';
 import { IconSuspension } from '../icons/index';
-import {  convertU8 } from '../../utils/tools';
+import { convertU8 } from '../../utils/tools';
 import {
   ROUTES_PREFIX,
   FAKE_DATA_ROUTES_PREFIX,
@@ -18,12 +22,11 @@ import {
 export default {
   name: 'IndicatorUpright',
   components: {
-    ElementInfo,
-    IconSuspension
+    ElementInfo
   },
   data() {
     return {
-      msg: 'Datos de Mangueta',
+      info: 'Datos de Mangueta',
       title: 'Uprights',
       IconSuspension,
       data: [
@@ -51,15 +54,15 @@ export default {
     [`${ FAKE_DATA_ROUTES_PREFIX }/${ ROUTES_BY_COMPONENT['Upright-wbl'] }`] (data) {
       this.data[0].value = `${ convertU8(data) } ºC`;
     },
-  },
+  }
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-  .stub {
-    background-color: rebeccapurple;
-    height: 20px;
-    width: 20px;
+  .uprights {
+    background-color: #ffffffb0;
+    padding: 10px;
+    padding-top: 0;
+    border: 1px solid #ddd;
   }
 </style>

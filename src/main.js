@@ -16,7 +16,7 @@ Vue.use(
     clean: false,
     clientId: 'frontend-listener-' + Math.random(),
     properties: {
-      topicAliasMaximum: 10000000
+      topicAliasMaximum: 10000
     }
   }
 )
@@ -32,7 +32,7 @@ if (!email || !password) {
 const email = 'test@telemetria.com';
 const password = 'abc123..';
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 new Vue({
   router,

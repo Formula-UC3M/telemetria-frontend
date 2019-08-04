@@ -2,11 +2,11 @@
   <div class="pedals">
     <div class="pedal pedal--brake">
       <Icon-pedal class="pedal__icon" mode="brake" />
-      <Ui-progress-bar orientation="vertical" :percentage="brake" />
+      <Ui-progress-bar orientation="vertical" :percentage="brakePercentage" />
     </div>
     <div class="pedal pedal--throttle">
       <Icon-pedal class="pedal__icon" mode="gas" />
-      <Ui-progress-bar orientation="vertical" :percentage="throttle" />
+      <Ui-progress-bar orientation="vertical" :percentage="throttlePercentage" />
     </div>
   </div>
 </template>
@@ -30,10 +30,43 @@
     },
     data() {
       return {
-        msg: 'Here Stub data',
-        brake: 30,
-        throttle: 40
+        brake: 0,
+        throttle: 0
       };
+    },
+    computed: {
+      brakePercentage() {
+        const { brake } = this;
+        let { max, min } = this.$store.state.config.sensors.brakePosition;
+
+        if (max === null) {
+          max = 100;
+          console.warn('Max Brake position not configured');
+        }
+
+        if (min === null) {
+          min = 0;
+          console.warn('Min Brake position not configured');
+        }
+
+        return brake !== min || max !== min ? (brake * 100) / max : min;
+      },
+      throttlePercentage() {
+        const { throttle } = this;
+        let { max, min } = this.$store.state.config.sensors.throttlePosition;
+
+        if (max === null) {
+          max = 100;
+          console.warn('Max Throttle position not configured');
+        }
+
+        if (min === null) {
+          min = 0;
+          console.warn('Min Throttle position not configured');
+        }
+
+        return throttle !== min || max !== min ? (throttle * 100) / max : min;
+      }
     },
     mqtt: {
       [`${ ROUTES_PREFIX }/${ ROUTES_BY_COMPONENT['Pedals-throttle'] }`] (data) {

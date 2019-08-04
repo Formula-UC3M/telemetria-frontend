@@ -1,1 +1,0 @@
-export const RECEIVE_MESSAGE = '@@sensor/receive_message';
