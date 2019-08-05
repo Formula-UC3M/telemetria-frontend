@@ -1,61 +1,70 @@
 <template>
-  <div class="rpm">
-    <span>12000 rpm</span>
-    <div class="porcentaje">
-      <div class="fill"></div>
+  <div class="rpm rpm--horizontal">
+    <div class="rpm-label">
+      <span class="rpm-label__num">{{ current }}</span>
+      <span class="rpm-label__unit"> RPM</span>
+    </div>
+    <div class="rpm-progress">
+      <Ui-progress-bar :percentage="percentage" />
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'IndicatorRpm',
-  data() {
-    return {
-      msg: 'Mensaje de RPM faster and furious!!!',
-    };
-  },
-};
+  import { UiProgressBar } from '../ui/index';
+  import { convertU8 } from '../../utils/tools';
+  import {
+    ROUTES_PREFIX,
+    FAKE_DATA_ROUTES_PREFIX,
+    ROUTES_BY_COMPONENT
+  } from '../../utils/constants';
+
+  export default {
+    name: 'IndicatorRpm',
+    components: {
+      UiProgressBar
+    },
+    data() {
+      return {
+        current: 0
+      };
+    },
+    computed: {
+      percentage() {
+        const { current } = this;
+        const { max, min } = this.$store.state.config.sensors.ecu.rpm;
+        return current !== min || max !== min ? (current * 100) / max : min;
+      }
+    },
+    mqtt: {
+    [`${ ROUTES_PREFIX }/${ ROUTES_BY_COMPONENT['Rpm'] }`] (data) {
+      this.current = convertU8(data);
+    },
+    [`${ FAKE_DATA_ROUTES_PREFIX }/${ ROUTES_BY_COMPONENT['Rpm'] }`] (data) {
+      this.current = convertU8(data);
+    }
+  }
+  };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
+<style lang="scss">
   .rpm {
-    width: 30vw;
+    display: flex;
   }
 
-    .rpm span {
-      width: 100%;
-      height: 4vh;
-      font-size: 2em;
+  .rpm--horizontal {
+    align-items: center;
+    .rpm-label {
+      width: 40%;
     }
-
-    .rpm .porcentaje {
-      background-color: lightgrey;
-      height: 4vh;
-      margin: 1vh 0;
-      position: relative;
-      text-align: left;
-      width: 90%;
+    .rpm-progress {
+      margin-left: 30px;
+      flex: 1;
     }
-      .rpm .porcentaje .fill {
-        background-color: green;
-        height: 100%;
-        width: 60%;
-      }
+  }
 
-      .rpm .porcentaje .cut {
-        position: absolute;
-        right: -5vh;
-        background-color: red;
-        height: 100%;
-        width: 4vh;
-      }
-
-    .rpm .embrague {
-      width: 90%;
-      height: 4vh;
-      background-color: yellow;
-      margin: 1vh 0;
-    }
+  .rpm-label {
+    font-family: 'Digit';
+    font-size: 2rem;
+  }
 </style>

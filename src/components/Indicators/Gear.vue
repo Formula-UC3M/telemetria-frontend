@@ -1,10 +1,11 @@
 <template>
   <div class="gear">
-    <p> 4 </p>
+    <span class="gear__label">N</span>
   </div>
 </template>
 
 <script>
+
 export default {
   name: 'IndicatorGear',
   data() {
@@ -17,19 +18,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-  .gear {
-    align-items: center;
-    background-color: lightgrey;
-    border: 1px solid grey;
-    display: flex;
-    justify-content: center;
-    height: 50px;
-    width: 50px;
-  }
-  .gear p {
-    color: #0e0e0e;
-    font-family: monospace;
-    font-size: 2em;
-    margin: 0;
-  }
+    .gear__label {
+      font-family: 'Digit';
+      color: #0e0e0e;
+      font-size: 2em;
+    }
 </style>

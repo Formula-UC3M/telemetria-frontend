@@ -7,3 +7,7 @@ before_install:
 install: true
 script:
   - bash ./build.sh
+branches:
+  only:
+    - master
+    - dev
